@@ -1,0 +1,112 @@
+input[type="range"] {
+    margin: 20px 0;
+    width: 100%;
+}
+input[type="range"]:focus {
+    outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #03a9f4 !important;
+    border-radius: 25px;
+}
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 1);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track,
+input[type="range"]:focus::-moz-slider-runnable-track {
+    background: #03a9f4 !important;
+}
+.range-wrap {
+    width: 100%;
+    position: relative;
+}
+.range-value {
+    position: absolute;
+    top: -50%;
+}
+.range-value span {
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 6px;
+}
+.range-value span:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #03a9f4;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
+.loader_bg {
+    position: fixed;
+    z-index: 999999;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+.loader {
+    border: 0 soild transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+}
+.loader:before,
+.loader:after {
+    content: "";
+    border: 1em solid #7037ff;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader:before {
+    animation-delay: 0.5s;
+}
+@keyframes loader {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
