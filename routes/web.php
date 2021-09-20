@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index')->name('quecommerz');
+Route::get('/', 'HomeController@index')->name('quecommerz');
+
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('/cart', 'pages.cart')->name('cart');

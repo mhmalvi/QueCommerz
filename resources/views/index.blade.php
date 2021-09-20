@@ -158,8 +158,59 @@
                         <div class="container-fluid">
                             <div class="woocommerce columns-6">
                                 <div class="products">
-                                    <new-arrivals></new-arrivals>
-                                    <!-- /.product-outer -->
+                                    @forelse ($products as $item)
+                                        <div class="product">
+                                            <a href="" class="woocommerce-LoopProduct-link">
+                                                @if ($item->discount)
+                                                    <span class="onsale">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">
+                                                                {{$item->discount()}}
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                @endif
+                                            <img
+                                                src="{{$item->thumbnail}}"
+                                                width="224"
+                                                height="197"
+                                                class="wp-post-image"
+                                                alt=""
+                                            />
+
+                                            @if ($item->discount > 0)
+                                                <span class="price">
+                                                    <ins>
+                                                        <span class="amount">${{$item->discounted()}}</span>
+                                                    </ins>
+                                                    <del>
+                                                        <span class="amount">${{$item->price}}</span>
+                                                    </del>
+                                                    <span class="amount"> </span>
+                                                </span>
+                                            @else
+                                                <span class="price">
+                                                    <ins>
+                                                        <span class="amount">${{$item->price}}</span>
+                                                    </ins>
+                                                    <span class="amount"></span>
+                                                </span>
+                                                <!-- /.price -->
+                                            @endif
+                                            <h2 class="woocommerce-loop-product__title">
+                                                {{$item->product}}
+                                            </h2>
+                                            </a>
+                                            <div class="hover-area">
+                                            <a class="button add_to_cart_button" href="" rel="nofollow"
+                                                >View Product</a
+                                            >
+                                            </div>
+                                        </div>
+                                        <!-- /.product-outer -->
+                                    @empty
+                                        
+                                    @endforelse
                                 </div>
                             </div>
                             <!-- .woocommerce-->

@@ -1,7 +1,12 @@
 import { createApp } from "vue";
+import axios from "axios";
 import NewArrivals from "./components/NewArrivals.vue";
 
 const app = createApp({});
+
+axios.defaults.baseURL = document.head.querySelector(
+    'meta[name="api-base-url"]'
+).content;
 
 app.component("new-arrivals", NewArrivals);
 

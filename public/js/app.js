@@ -38827,6 +38827,18 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -38886,11 +38898,15 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _components_NewArrivals_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NewArrivals.vue */ "./resources/js/components/NewArrivals.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_NewArrivals_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/NewArrivals.vue */ "./resources/js/components/NewArrivals.vue");
+
 
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
-app.component("new-arrivals", _components_NewArrivals_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = document.head.querySelector('meta[name="api-base-url"]').content;
+app.component("new-arrivals", _components_NewArrivals_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 app.mount("#page");
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
