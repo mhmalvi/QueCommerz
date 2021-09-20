@@ -38,8 +38,8 @@
             case 'recent':
                 $class = 'woocommerce-active left-sidebar';
                 break;
-            case 'product':
-                $class = 'woocommerce-active single-product full-width extended';
+            case 'item':
+                $class = 'woocommerce-active  single-product left-sidebar normal';
                 break;
             case 'order':
                 $class = 'page-template-default woocommerce-checkout woocommerce-page woocommerce-order-received can-uppercase woocommerce-active';

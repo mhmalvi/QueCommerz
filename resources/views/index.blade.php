@@ -160,7 +160,7 @@
                                 <div class="products">
                                     @forelse ($products as $item)
                                         <div class="product">
-                                            <a href="" class="woocommerce-LoopProduct-link">
+                                            <a href="{{route('item', $item->slug)}}" class="woocommerce-LoopProduct-link">
                                                 @if ($item->discount)
                                                     <span class="onsale">
                                                         <span class="woocommerce-Price-amount amount">
@@ -202,7 +202,7 @@
                                             </h2>
                                             </a>
                                             <div class="hover-area">
-                                            <a class="button add_to_cart_button" href="" rel="nofollow"
+                                            <a class="button add_to_cart_button" href="{{route('item', $item->slug)}}" rel="nofollow"
                                                 >View Product</a
                                             >
                                             </div>

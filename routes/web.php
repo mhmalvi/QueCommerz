@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
+Route::get('/{product}', 'ProductController@view')->name('item');
 
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');

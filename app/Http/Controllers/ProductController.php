@@ -19,4 +19,13 @@ class ProductController extends Controller
             return response()->json(['message' => $th->getMessage()], 503);
         }
     }
+
+
+    /**
+     * View Specific product
+     */
+    public function view(Product $product)
+    {
+        return view('pages.item', compact('product'));
+    }
 }
