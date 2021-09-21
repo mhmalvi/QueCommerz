@@ -26,7 +26,7 @@ class Cart implements ICart
     {
         $storedItem = [
             'qty' => 0,
-            'price' => $item->price,
+            'price' => $item->discounted(),
             'item' => $item
         ];
 
@@ -36,15 +36,15 @@ class Cart implements ICart
         if ($this->items && array_key_exists($id, $this->items)) {
             $storedItem = $this->items[$id];
             $storedItem['qty'] += $qty;
-            $storedItem['price'] = $item->price * $storedItem['qty'];
+            $storedItem['price'] = $item->discounted() * $storedItem['qty'];
         } else {
             $storedItem['qty'] += $qty;
-            $storedItem['price'] = $item->price * $storedItem['qty'];
+            $storedItem['price'] = $item->discounted() * $storedItem['qty'];
+            $this->totalQty += 1;
         }
 
         $this->items[$id] = $storedItem;
-        $this->totalQty += $qty;
-        $this->totalPrice += $item->price * $qty;
+        $this->totalPrice += $item->discounted() * $qty;
     }
 
     /**

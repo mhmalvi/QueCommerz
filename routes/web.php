@@ -21,6 +21,8 @@ Route::name("cart.")->group(function () {
     Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
 });
 
+Route::get('mini-cart', 'CartController@minicart');
+
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('/cart', 'pages.cart')->name('cart');

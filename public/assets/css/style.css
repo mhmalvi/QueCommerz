@@ -32230,7 +32230,7 @@ article .widget_price_filter .price_slider_amount .more-link {
 }
 .widget_shopping_cart_content .product_list_widget .mini_cart_item img,
 .widget_shopping_cart .product_list_widget .mini_cart_item img {
-    max-width: 75px;
+    max-width: 50px;
 }
 .widget_shopping_cart_content .product_list_widget .mini_cart_item .quantity,
 .widget_shopping_cart .product_list_widget .mini_cart_item .quantity {
