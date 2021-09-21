@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
@@ -12,6 +11,10 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $hidden = ["id"];
+
+    protected $with = ["productimages"];
 
     public function getRouteKeyName()
     {
@@ -41,22 +44,12 @@ class Product extends Model
         } elseif ($this->discount_type == 'percent' && $this->discount > 0) {
             return number_format(($this->price - (($this->price * $this->discount) / 100)), 2, '.', ',');
         } else {
-            return 0;
+            return $this->price;
         }
     }
 
     public function productimages()
     {
-        $images =  DB::table('product_images')->where('product_id', $this->id)->get();
-
-        if (!is_null($images)) {
-            return $images->map(function ($res) {
-                return [
-                    'image' => Storage::disk('ftp')->url("gallary/{$res->image}")
-                ];
-            });
-        } else {
-            return null;
-        }
+        return $this->hasMany(ProductImage::class);
     }
 }

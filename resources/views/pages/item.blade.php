@@ -33,10 +33,10 @@
                                                     <img width="600" height="600" src="{{$product->thumbnail}}" class="attachment-shop_single size-shop_single wp-post-image" alt="">
                                                 </a>
                                             </div>
-                                            @forelse ($product->productimages() as $item)
-                                                <div data-thumb="{{$item['image']}}" class="woocommerce-product-gallery__image">
-                                                    <a href="{{$item['image']}}" tabindex="0">
-                                                        <img width="600" height="600" src="{{$item['image']}}" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                            @forelse ($product->productimages as $item)
+                                                <div data-thumb="{{$item->image}}" class="woocommerce-product-gallery__image">
+                                                    <a href="{{$item->image}}" tabindex="0">
+                                                        <img width="600" height="600" src="{{$item->image}}" class="attachment-shop_single size-shop_single wp-post-image" alt="">
                                                     </a>
                                                 </div>
                                             @empty
@@ -52,9 +52,9 @@
                                         <figure data-thumb="{{$product->thumbnail}}" class="techmarket-wc-product-gallery__image">
                                             <img width="180" height="180" src="{{$product->thumbnail}}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
                                         </figure>
-                                        @forelse ($product->productimages() as $item)
-                                            <figure data-thumb="{{$item['image']}}" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="{{$item['image']}}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+                                        @forelse ($product->productimages as $item)
+                                            <figure data-thumb="{{$item->image}}" class="techmarket-wc-product-gallery__image">
+                                                <img width="180" height="180" src="{{$item->image}}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
                                             </figure>
                                         @empty
 
@@ -87,11 +87,16 @@
                                         <span class="sku">{{$product->sku}}</span>
                                     </span>
                                 </div>
-                                <div class="product-label">
-                                    <div class="ribbon label green-label">
-                                        <span>in stock</span>
-                                    </div>
-                                </div>
+                                @if ($product->status)
+                                    <span class="badge badge-success p-2 font-weight-normal">
+                                        In stock
+                                    </span>
+                                @else
+                                    <span class="badge badge-danger p-2 font-weight-normal">
+                                        Out of stock
+                                    </span>
+                                @endif
+
                             </div>
                             <!-- .single-product-meta -->
                             <div class="rating-and-sharing-wrapper">
@@ -140,13 +145,14 @@
                                         </p>
                                     @endif
                                     <!-- .single-product-header -->
-                                    <form enctype="multipart/form-data" method="post" class="cart">
+                                    <form enctype="multipart/form-data" method="post" class="cart" action="{{route('cart.store', $product->slug)}}">
+                                        @csrf
                                         <div class="quantity">
                                             <label for="quantity-input">Quantity</label>
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" id="quantity-input">
+                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" id="quantity-input" min="1" max="5">
                                         </div>
                                         <!-- .quantity -->
-                                        <button class="single_add_to_cart_button button alt" onclick="window.location.href='../cart.html'" value="185" name="add-to-cart" type="submit">Add to cart</button>
+                                        <button class="single_add_to_cart_button button alt" type="submit">Add to cart</button>
                                     </form>
                                     <!-- .cart -->
                                 </div>

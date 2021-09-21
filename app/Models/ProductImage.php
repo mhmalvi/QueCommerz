@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
@@ -12,6 +13,11 @@ class ProductImage extends Model
     protected $guarded = [];
 
     protected $hidden = ["id"];
+
+    public function getImageAttribute($value)
+    {
+        return Storage::disk('ftp')->url("gallary/{$value}");
+    }
 
     public function product()
     {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Cart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
-Route::get('/{product}', 'ProductController@view')->name('item');
+Route::get('/view/{product}', 'ProductController@view')->name('item');
+
+Route::name("cart.")->group(function () {
+    Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
+});
 
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
