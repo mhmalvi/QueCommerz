@@ -18,22 +18,21 @@ Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::get('/view/{product}', 'ProductController@view')->name('item');
 
 Route::get('cart', 'CartController@index')->name('cart');
-
+Route::get('mini-cart', 'CartController@minicart');
 Route::name("cart.")->group(function () {
     Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
     Route::get('{product}/remove-from-cart', 'CartController@remove')->name('remove');
 });
 
-Route::get('mini-cart', 'CartController@minicart');
+Route::get("checkout", "CheckoutController@index")->name("checkout");
+Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
 
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
-Route::view('/checkout', 'pages.checkout')->name('checkout');
 Route::view('/track-my-order', 'pages.track')->name('track');
 Route::view('wishlist', 'pages.wishlist')->name('wishlist');
 Route::view('recently-viwed-by-you', 'pages.recent-views')->name('recent');
 Route::view('product', 'pages.item')->name('product');
-Route::view('order', 'pages.order-confirm')->name('order');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

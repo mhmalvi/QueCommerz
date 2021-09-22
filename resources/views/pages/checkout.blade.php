@@ -828,49 +828,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="cart_item">
-                                                    <td class="product-name">
-                                                        <strong class="product-quantity">1 ×</strong> 55" KU6470 6 Series UHD Crystal Colour HDR Smart TV&nbsp;
-                                                    </td>
-                                                    <td class="product-total">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>627.99</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class="cart_item">
-                                                    <td class="product-name">
-                                                        <strong class="product-quantity">1 ×</strong> 4K Action Cam GPS&nbsp;
-                                                    </td>
-                                                    <td class="product-total">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>219.00</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class="cart_item">
-                                                    <td class="product-name">
-                                                        <strong class="product-quantity">1 ×</strong> Bluetooth on-ear PureBass Headphones&nbsp;
-                                                    </td>
-                                                    <td class="product-total">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>99.95</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class="cart_item">
-                                                    <td class="product-name">
-                                                        <strong class="product-quantity">1 ×</strong> Band Fitbit Flex&nbsp;
-                                                    </td>
-                                                    <td class="product-total">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>17.00</span>
-                                                    </td>
-                                                </tr>
+                                                @forelse ($cart["Products"] as $item)
+                                                    <tr class="cart_item">
+                                                        <td class="product-name">
+                                                            <strong class="product-quantity">{{$item["Quantity"]}} ×</strong>
+                                                            {{$item["Title"]}}&nbsp;
+                                                        </td>
+                                                        <td class="product-total">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-currencySymbol">$</span>{{$item["Price"]}}</span>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    
+                                                @endforelse
                                             </tbody>
                                             <tfoot>
                                                 <tr class="cart-subtotal">
                                                     <th>Subtotal</th>
                                                     <td>
                                                         <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>963.94</span>
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>{{$cart["SubTotal"]}}</span>
                                                     </td>
                                                 </tr>
                                                 <tr class="order-total">
@@ -878,7 +856,7 @@
                                                     <td>
                                                         <strong>
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-currencySymbol">£</span>963.94</span>
+                                                                <span class="woocommerce-Price-currencySymbol">$</span>{{$cart["SubTotal"]}}</span>
                                                         </strong>
                                                     </td>
                                                 </tr>
@@ -912,7 +890,7 @@
                                                     </label>
                                                     <input type="hidden" value="1" name="terms-field">
                                                 </p>
-                                                <a href="order-received.html" class="button wc-forward text-center">Place order</a>
+                                                <a href="{{route('confirm')}}" class="button wc-forward text-center">Place order</a>
                                             </div>
                                         </div>
                                         <!-- /.woocommerce-checkout-payment -->

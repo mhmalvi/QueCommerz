@@ -100,7 +100,7 @@
                                                         <th>Subtotal</th>
                                                         <td data-title="Subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-currencySymbol">£</span>963.94</span>
+                                                                <span class="woocommerce-Price-currencySymbol">$</span>{{$cart["SubTotal"]}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
@@ -112,7 +112,7 @@
                                                         <td data-title="Total">
                                                             <strong>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">£</span>963.94</span>
+                                                                    <span class="woocommerce-Price-currencySymbol">$</span>{{$cart["SubTotal"]}}</span>
                                                             </strong>
                                                         </td>
                                                     </tr>

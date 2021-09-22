@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Cart\Cart;
+use App\Http\Cart\TCart;
 use App\Http\Resources\MiniCartCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
+    use TCart;
     /**
      * View shopping Cart
      */
@@ -74,30 +76,5 @@ class CartController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 503);
         }
-    }
-
-
-    private function shoppingCart()
-    {
-        $cart = Session::get('cart');
-        $items = [];
-
-        foreach ($cart->items as $key => $value) {
-            array_push($items, [
-                'Id' => $key,
-                'Title' => $value["item"]["product"],
-                'Slug' => $value["item"]["slug"],
-                'Price' => $value["item"]->discounted(),
-                'Quantity' => $value["qty"],
-                'TotalPrice' => $value["price"],
-                'thumbnail' => $value["item"]["thumbnail"]
-            ]);
-        }
-
-        return $cart = [
-            'SubTotal' => $cart->totalPrice,
-            'TotalItems' => $cart->totalQty,
-            'Products' => $items
-        ];
     }
 }

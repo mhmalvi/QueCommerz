@@ -1,56 +1,103 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('title', "Register or Sign in")
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@section('content')
+    <div class="row">
+        <nav class="woocommerce-breadcrumb">
+            <a href="">Home</a>
+            <span class="delimiter">
+                <i class="tm tm-breadcrumbs-arrow-right"></i>
+            </span>My Account
+        </nav>
+        <!-- .woocommerce-breadcrumb -->
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="type-page hentry">
+                    <div class="entry-content">
+                        <div class="woocommerce">
+                            <div class="customer-login-form">
+                                <span class="or-text">or</span>
+                                <div id="customer_login" class="u-columns col2-set">
+                                    <div class="u-column1 col-1">
+                                        <h2>Login</h2>
+                                        <form method="post" class="woocomerce-form woocommerce-form-login login" action="{{ route('login') }}">
+                                            @csrf
+                                            <p class="before-login-text">
+                                                Vestibulum lacus magna, faucibus vitae dui eget, aliquam fringilla. In et commodo elit. Class aptent taciti sociosqu ad litora.
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="email">email address
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input type="text" class="input-text" name="email" id="email" value="" required autofocus/>
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="password">Password
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input class="input-text" type="password" name="password" id="password" required autocomplete="current-password"/>
+                                            </p>
+                                            <p class="form-row">
+                                                <input class="woocommerce-Button button" type="submit" value="Login" name="login">
+                                                <label for="rememberme" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+                                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> Remember me
+                                                </label>
+                                            </p>
+                                            <p class="woocommerce-LostPassword lost_password">
+                                                <a href="#">Lost your password?</a>
+                                            </p>
+                                        </form>
+                                        <!-- .woocommerce-form-login -->
+                                    </div>
+                                    <!-- .col-1 -->
+                                    <div class="u-column2 col-2">
+                                        <h2>Register</h2>
+                                        <form class="register" method="post">
+                                            <p class="before-register-text">
+                                                Create new account today to reap the benefits of a personalized shopping experience. Praesent placerat, est sed aliquet finibus.
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="reg_email">Email address
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input type="email" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text">
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="reg_password">Password
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input type="password" id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text">
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="submit" class="woocommerce-Button button" name="register" value="Register" />
+                                            </p>
+                                            <div class="register-benefits">
+                                                <h3>Sign up today and you will be able to :</h3>
+                                                <ul>
+                                                    <li>Speed your way through checkout</li>
+                                                    <li>Track your orders easily</li>
+                                                    <li>Keep a record of all your purchases</li>
+                                                </ul>
+                                            </div>
+                                        </form>
+                                        <!-- .register -->
+                                    </div>
+                                    <!-- .col-2 -->
+                                </div>
+                                <!-- .col2-set -->
+                            </div>
+                            <!-- .customer-login-form -->
+                        </div>
+                        <!-- .woocommerce -->
+                    </div>
+                    <!-- .entry-content -->
+                </div>
+                <!-- .hentry -->
+            </main>
+            <!-- #main -->
+        </div>
+        <!-- #primary -->
+    </div>
+    <!-- .row -->
+@endsection
