@@ -1,6 +1,6 @@
 <template>
   <ul id="site-header-cart" class="site-header-cart menu">
-    <li class="animate-dropdown dropdown" :class="expand && 'show'">
+    <li class="animate-dropdown dropdown">
       <a
         class="cart-contents"
         href="javascript:void(0)"
@@ -16,10 +16,7 @@
           <span v-if="cartItems.SubTotal">&#036;{{ cartItems.SubTotal }}</span>
         </span>
       </a>
-      <ul
-        class="dropdown-menu dropdown-menu-mini-cart py-0"
-        :class="expand && 'show'"
-      >
+      <ul class="dropdown-menu dropdown-menu-mini-cart py-0">
         <li v-if="cartItems.Products">
           <div class="widget woocommerce widget_shopping_cart">
             <div class="widget_shopping_cart_content">
