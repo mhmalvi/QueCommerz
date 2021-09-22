@@ -126,9 +126,7 @@
                 </li>
             </ul>
             <!-- .header-wishlist -->
-            <ul id="site-header-cart" class="site-header-cart menu">
-                <cart-component></cart-component>
-            </ul>
+            <cart-component></cart-component>
             <!-- .site-header-cart -->
         </div>
         <!-- /.row -->

@@ -22,7 +22,7 @@ class Cart implements ICart
     /**
      * Add item to cart
      */
-    public function AddToCart(int $id, $item, int $qty): void
+    public function AddToCart(string $id, $item, int $qty): void
     {
         $storedItem = [
             'qty' => 0,
@@ -57,8 +57,14 @@ class Cart implements ICart
     /**
      * Remove item from cart
      */
-    public function RemoveFromCart(int $id)
+    public function RemoveFromCart(string $id)
     {
+        if (array_key_exists($id, $this->items)) {
+            $this->totalQty -= $this->items[$id]['qty'];
+            $this->totalPrice -= $this->items[$id]['price'];
+
+            unset($this->items[$id]);
+        }
     }
 
     /**

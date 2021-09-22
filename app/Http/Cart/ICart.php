@@ -7,7 +7,7 @@ interface ICart
     /**
      * Add item to cart
      */
-    public function AddToCart(int $id, $product, int $quantity): void;
+    public function AddToCart(string $id, $product, int $quantity): void;
 
     /**
      * Update the quantity of cart item
@@ -17,7 +17,7 @@ interface ICart
     /**
      * Remove a single item from cart
      */
-    public function RemoveFromCart(int $id);
+    public function RemoveFromCart(string $id);
 
     /**
      * Remove the whole cart

@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::get('/view/{product}', 'ProductController@view')->name('item');
 
+Route::get('cart', 'CartController@index')->name('cart');
+
 Route::name("cart.")->group(function () {
     Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
+    Route::get('{product}/remove-from-cart', 'CartController@remove')->name('remove');
 });
 
 Route::get('mini-cart', 'CartController@minicart');
 
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
-Route::view('/cart', 'pages.cart')->name('cart');
 Route::view('/checkout', 'pages.checkout')->name('checkout');
 Route::view('/track-my-order', 'pages.track')->name('track');
 Route::view('wishlist', 'pages.wishlist')->name('wishlist');
