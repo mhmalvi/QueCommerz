@@ -21,7 +21,7 @@ Route::get('cart', 'CartController@index')->name('cart');
 Route::get('mini-cart', 'CartController@minicart');
 Route::name("cart.")->group(function () {
     Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
-    Route::get('{product}/remove-from-cart', 'CartController@remove')->name('remove');
+    Route::delete('{product}/remove-from-cart', 'CartController@remove')->name('remove');
 });
 
 Route::get("checkout", "CheckoutController@index")->name("checkout");

@@ -61,7 +61,7 @@ class CartController extends Controller
             Session::put('cart', $cart);
         }
 
-        return back();
+        return $this->minicart();
     }
 
 
@@ -72,7 +72,7 @@ class CartController extends Controller
                 return new MiniCartCollection($this->shoppingCart());
             }
 
-            return response()->json(['message' => "Your cart is empty"], 200);
+            return response()->json(['cart' => false], 200);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 503);
         }

@@ -8,10 +8,9 @@
         title="View your shopping cart"
       >
         <i class="tm tm-shopping-bag"></i>
-        <span class="count">{{ getCart.TotalItems }}</span>
-        <!-- <span class="count" v-if="cartItems.TotalItems">{{
-          cartItems.TotalItems
-        }}</span> -->
+        <span class="count" v-if="getCart.TotalItems">{{
+          getCart.TotalItems
+        }}</span>
         <span class="amount">
           <span class="price-label">Cart</span>
           <span v-if="getCart.SubTotal">&#036;{{ getCart.SubTotal }}</span>
@@ -92,7 +91,7 @@
           <!-- .widget_shopping_cart -->
         </li>
 
-        <li class="text-center" v-else>{{ message }}</li>
+        <li class="text-center py-2" v-else>{{ message }}</li>
       </ul>
       <!-- .dropdown-menu-mini-cart -->
     </li>
@@ -111,10 +110,11 @@ export default {
       await axios
         .get("mini-cart")
         .then((res) => {
-          if (res.data.data) {
-            this.$store.dispatch("cartItems", res.data.data);
+          if (res.data.cart == false) {
+            this.message = "Your haven't shop yet!";
+            this.$store.dispatch("cartItems", {});
           } else {
-            this.message = res.data.message;
+            this.$store.dispatch("cartItems", res.data.data);
           }
         })
         .catch((error) => {
