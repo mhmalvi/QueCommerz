@@ -8,22 +8,23 @@
         title="View your shopping cart"
       >
         <i class="tm tm-shopping-bag"></i>
-        <span class="count" v-if="cartItems.TotalItems">{{
+        <span class="count">{{ getCart.TotalItems }}</span>
+        <!-- <span class="count" v-if="cartItems.TotalItems">{{
           cartItems.TotalItems
-        }}</span>
+        }}</span> -->
         <span class="amount">
           <span class="price-label">Cart</span>
-          <span v-if="cartItems.SubTotal">&#036;{{ cartItems.SubTotal }}</span>
+          <span v-if="getCart.SubTotal">&#036;{{ getCart.SubTotal }}</span>
         </span>
       </a>
       <ul class="dropdown-menu dropdown-menu-mini-cart py-0">
-        <li v-if="cartItems.Products">
+        <li v-if="getCart.Products">
           <div class="widget woocommerce widget_shopping_cart">
             <div class="widget_shopping_cart_content">
               <ul class="woocommerce-mini-cart cart_list product_list_widget">
                 <li
                   class="woocommerce-mini-cart-item mini_cart_item"
-                  v-for="(item, index) in cartItems.Products"
+                  v-for="(item, index) in getCart.Products"
                   :key="index"
                 >
                   <a href="">
@@ -81,7 +82,7 @@
                   Subtotal:
                   <span class="woocommerce-Price-amount amount">
                     <span class="woocommerce-Price-currencySymbol">$</span>
-                    {{ cartItems.SubTotal }}
+                    {{ getCart.SubTotal }}
                   </span>
                 </p>
               </div>
@@ -102,7 +103,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      cartItems: {},
       message: "",
     };
   },
@@ -112,7 +112,7 @@ export default {
         .get("mini-cart")
         .then((res) => {
           if (res.data.data) {
-            this.cartItems = res.data.data;
+            this.$store.dispatch("cartItems", res.data.data);
           } else {
             this.message = res.data.message;
           }
@@ -128,6 +128,11 @@ export default {
   },
   mounted() {
     this.getMiniCartItems();
+  },
+  computed: {
+    getCart() {
+      return this.$store.state.cart;
+    },
   },
 };
 </script>

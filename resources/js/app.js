@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import store from "./store";
 import axios from "axios";
 import NewArrivals from "./components/NewArrivals.vue";
 import MiniCart from "./components/MiniCart.vue";
@@ -12,7 +13,7 @@ axios.defaults.baseURL = document.head.querySelector(
 app.component("new-arrivals", NewArrivals);
 app.component("mini-cart", MiniCart);
 
-app.mount("#page");
+app.use(store).mount("#page");
 
 require("./bootstrap");
 
