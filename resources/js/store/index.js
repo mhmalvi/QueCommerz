@@ -4,6 +4,7 @@ export default createStore({
         return {
             count: 0,
             cart: {},
+            products: [],
         };
     },
     getters: {

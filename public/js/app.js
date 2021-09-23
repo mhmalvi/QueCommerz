@@ -21357,6 +21357,9 @@ __webpack_require__.r(__webpack_exports__);
     CartTotals: _CartTotals_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
+    updateCartItem: function updateCartItem(id, quantity) {
+      console.log(id, quantity);
+    },
     removeFromCart: function removeFromCart(product) {
       var _this = this;
 
@@ -21367,7 +21370,9 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           _this.$store.dispatch("cartItems", res.data.data);
         }
-      })["catch"](function (error) {});
+      })["catch"](function (error) {
+        console.error(error);
+      });
     }
   },
   computed: {
@@ -21703,7 +21708,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
       id: "quantity-input",
       type: "number",
-      name: "quantity[]",
       value: item.Quantity,
       title: "Qty",
       "class": "input-text qty text",
@@ -22196,7 +22200,8 @@ __webpack_require__.r(__webpack_exports__);
   state: function state() {
     return {
       count: 0,
-      cart: {}
+      cart: {},
+      products: []
     };
   },
   getters: {

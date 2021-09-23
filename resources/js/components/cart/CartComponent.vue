@@ -57,7 +57,6 @@
                 <input
                   id="quantity-input"
                   type="number"
-                  name="quantity[]"
                   :value="item.Quantity"
                   title="Qty"
                   class="input-text qty text"
@@ -126,6 +125,9 @@ export default {
     CartTotals,
   },
   methods: {
+    updateCartItem(id, quantity) {
+      console.log(id, quantity);
+    },
     removeFromCart(product) {
       axios
         .delete(`${product}/remove-from-cart`)
@@ -137,7 +139,9 @@ export default {
             this.$store.dispatch("cartItems", res.data.data);
           }
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
   computed: {
