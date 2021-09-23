@@ -126,7 +126,7 @@
                 </li>
             </ul>
             <!-- .header-wishlist -->
-            <cart-component></cart-component>
+            <mini-cart></mini-cart>
             <!-- .site-header-cart -->
         </div>
         <!-- /.row -->

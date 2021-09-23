@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import axios from "axios";
 import NewArrivals from "./components/NewArrivals.vue";
-import CartComponent from "./components/CartComponent.vue";
+import MiniCart from "./components/MiniCart.vue";
 
 const app = createApp({});
 
@@ -10,7 +10,7 @@ axios.defaults.baseURL = document.head.querySelector(
 ).content;
 
 app.component("new-arrivals", NewArrivals);
-app.component("cart-component", CartComponent);
+app.component("mini-cart", MiniCart);
 
 app.mount("#page");
 
