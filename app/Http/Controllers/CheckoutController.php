@@ -25,6 +25,16 @@ class CheckoutController extends Controller
     }
 
     /**
+     * Post Checkout
+     */
+    public function checkout(Request $request)
+    {
+        if ($request->payment_method) {
+            return redirect()->route("paypal");
+        }
+    }
+
+    /**
      * Order confirm
      */
     public function confirm()

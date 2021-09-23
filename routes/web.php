@@ -25,7 +25,10 @@ Route::name("cart.")->group(function () {
 });
 
 Route::get("checkout", "CheckoutController@index")->name("checkout");
+Route::post("checkout", "CheckoutController@checkout");
 Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
+
+Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
 
 Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');

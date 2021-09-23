@@ -64,7 +64,8 @@
                                 </form>
                             </div>
                             <!-- .collapse -->
-                            <form action="#" class="checkout woocommerce-checkout" method="post" name="checkout">
+                            <form action="{{route("checkout")}}" class="checkout woocommerce-checkout" method="post" name="checkout">
+                                @csrf
                                 <div id="customer_details" class="col2-set">
                                     <div class="col-1">
                                         <div class="woocommerce-billing-fields">
@@ -866,19 +867,12 @@
                                         <div class="woocommerce-checkout-payment" id="payment">
                                             <ul class="wc_payment_methods payment_methods methods">
                                                 <li class="wc_payment_method payment_method_bacs">
-                                                    <input type="radio" data-order_button_text="" checked="checked" value="bacs" name="payment_method" class="input-radio" id="payment_method_bacs">
-                                                    <label for="payment_method_bacs">Direct bank transfer</label>
-                                                    
-                                                </li>
-                                                <li class="wc_payment_method payment_method_cheque">
-                                                    <input type="radio" data-order_button_text="" value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque">
-                                                    <label for="payment_method_cheque">Check payments </label>
-                                                    
+                                                    <input type="radio" data-order_button_text="" value="paypal" name="payment_method" class="input-radio" id="payment_method_paypal">
+                                                    <label for="payment_method_paypal">Pay with paypal</label>
                                                 </li>
                                                 <li class="wc_payment_method payment_method_cod">
-                                                    <input type="radio" data-order_button_text="" value="cod" name="payment_method" class="input-radio" id="payment_method_cod">
+                                                    <input type="radio" data-order_button_text="" value="cod" name="payment_method" class="input-radio" id="payment_method_cod" checked="checked">
                                                     <label for="payment_method_cod">Cash on delivery </label>
-                                                    
                                                 </li>
                                             </ul>
                                             <div class="form-row place-order">
@@ -890,7 +884,7 @@
                                                     </label>
                                                     <input type="hidden" value="1" name="terms-field">
                                                 </p>
-                                                <a href="{{route('confirm')}}" class="button wc-forward text-center">Place order</a>
+                                                <button type="submit" class="button wc-forward text-center">Place order</button>
                                             </div>
                                         </div>
                                         <!-- /.woocommerce-checkout-payment -->
