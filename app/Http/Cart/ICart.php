@@ -12,7 +12,7 @@ interface ICart
     /**
      * Update the quantity of cart item
      */
-    public function UpdateCart(int $id, object $item, int $quantity);
+    public function UpdateCart(string $id, object $item, int $quantity);
 
     /**
      * Remove a single item from cart

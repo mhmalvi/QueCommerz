@@ -43,6 +43,30 @@ class CartController extends Controller
         return back();
     }
 
+    /**
+     * update whole cart
+     */
+    public function update(Request $request)
+    {
+        //remove cart from session
+        if (Session::has('cart')) {
+            Session::forget('cart');
+        }
+
+        $id = $request->id;
+        $qty = $request->qty;
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+
+        for ($i = 0; $i < count($id); $i++) {
+            $product = Product::where('slug', $id[$i])->first();
+            $cart->UpdateCart($product->uuid, $product, $qty[$i]);
+        }
+
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+
 
     /**
      * Remove single item from cart
@@ -61,7 +85,8 @@ class CartController extends Controller
             Session::put('cart', $cart);
         }
 
-        return $this->minicart();
+        // return $this->minicart();
+        return back();
     }
 
 
@@ -72,7 +97,7 @@ class CartController extends Controller
                 return new MiniCartCollection($this->shoppingCart());
             }
 
-            return response()->json(['cart' => false], 200);
+            return response()->json(['cart' => 0], 200);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 503);
         }

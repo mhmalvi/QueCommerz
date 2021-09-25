@@ -50,8 +50,26 @@ class Cart implements ICart
     /**
      * Update Cart item
      */
-    public function UpdateCart(int $id, object $item, int $quantity)
+    public function UpdateCart(string $id, object $item, int $quantity)
     {
+        $updatedItem = [
+            'qty' => $quantity,
+            'price' => $item->discounted(),
+            'item' => $item
+        ];
+
+        if ($this->items) {
+            if (array_key_exists($id, $this->items)) {
+                $updatedItem = $this->items[$id];
+            }
+        }
+
+        $updatedItem['price'] = $updatedItem["price"] * $updatedItem['qty'];
+
+        $this->items[$id] = $updatedItem;
+
+        $this->totalQty += 1;
+        $this->totalPrice += $updatedItem['price'];
     }
 
     /**

@@ -1,31 +1,31 @@
 import { createStore } from "vuex";
+import axios from "axios";
 export default createStore({
     state() {
         return {
-            count: 0,
-            cart: {},
-            products: [],
+            cart: [],
         };
     },
     getters: {
-        count(state) {
-            return state;
-        },
-        cart(state) {
-            return state;
-        },
+        getCart: (state) => state.cart,
     },
     actions: {
-        cartItems(context, payload) {
-            context.commit("mutateCart", payload);
+        loadCartItems({ commit }) {
+            axios
+                .get("mini-cart")
+                .then((res) => {
+                    if (res.data.data) {
+                        commit("SAVE_CART", res.data.data);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         },
     },
     mutations: {
-        increment(state, payload) {
-            return (state.cart = payload);
-        },
-        mutateCart(state, payload) {
-            return (state.cart = payload);
+        SAVE_CART(state, payload) {
+            state.cart = payload;
         },
     },
 });

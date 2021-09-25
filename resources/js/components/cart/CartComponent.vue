@@ -20,10 +20,8 @@
             <td class="product-thumbnail">
               <a href="">
                 <img
-                  width="180"
-                  height="180"
                   alt=""
-                  class="wp-post-image"
+                  class="wp-post-image cart-img"
                   :src="item.thumbnail"
                 />
               </a>
@@ -32,10 +30,8 @@
               <div class="media cart-item-product-detail">
                 <a href="">
                   <img
-                    width="180"
-                    height="180"
                     alt=""
-                    class="wp-post-image"
+                    class="wp-post-image cart-img"
                     :src="item.thumbnail"
                   />
                 </a>
@@ -53,17 +49,36 @@
             </td>
             <td class="product-quantity" data-title="Quantity">
               <div class="quantity">
-                <label for="quantity-input">Quantity</label>
-                <input
-                  id="quantity-input"
-                  type="number"
-                  :value="item.Quantity"
-                  title="Qty"
-                  class="input-text qty text"
-                  size="4"
-                  min="1"
-                  max="5"
-                />
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      type="button"
+                    >
+                      -
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    class="
+                      input-text
+                      border-secondary
+                      input-height
+                      qty
+                      rounded-0
+                    "
+                    readonly
+                    @input="updateMyProp(index)"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      type="button"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
             </td>
             <td data-title="Total" class="product-subtotal">
@@ -125,8 +140,9 @@ export default {
     CartTotals,
   },
   methods: {
-    updateCartItem(id, quantity) {
-      console.log(id, quantity);
+    updateMyProp($event, index) {
+      // your update logic here
+      // you can use 'this.items', Object.assign, Vue.set, etc... to update your value
     },
     removeFromCart(product) {
       axios
@@ -151,5 +167,12 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+.input-height {
+  height: 35px !important;
+}
+
+.cart-img {
+  width: 80px !important;
+}
 </style>

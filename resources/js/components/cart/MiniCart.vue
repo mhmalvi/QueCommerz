@@ -91,47 +91,25 @@
           <!-- .widget_shopping_cart -->
         </li>
 
-        <li class="text-center py-2" v-else>{{ message }}</li>
+        <li class="text-center py-2" v-else>Your cart is empty!</li>
       </ul>
       <!-- .dropdown-menu-mini-cart -->
     </li>
   </ul>
 </template>
 <script>
-import axios from "axios";
 export default {
-  data() {
-    return {
-      message: "",
-    };
+  created() {
+    this.$store.dispatch("loadCartItems");
   },
   methods: {
-    async getMiniCartItems() {
-      await axios
-        .get("mini-cart")
-        .then((res) => {
-          if (res.data.cart == false) {
-            this.message = "Your haven't shop yet!";
-            this.$store.dispatch("cartItems", {});
-          } else {
-            this.$store.dispatch("cartItems", res.data.data);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-
     viewCart() {
       window.location.href = "/cart";
     },
   },
-  mounted() {
-    this.getMiniCartItems();
-  },
   computed: {
     getCart() {
-      return this.$store.state.cart;
+      return this.$store.getters.getCart;
     },
   },
 };
