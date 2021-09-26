@@ -114,6 +114,29 @@ class CartController extends Controller
     }
 
 
+    public function removeCartItem(Product $product)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+        $cart = new Cart($oldCart);
+
+        if (array_key_exists($product->uuid, $cart->items)) {
+            $cart->totalQty--;
+            $cart->totalPrice -= $cart->items[$product->uuid]['price'];
+
+            unset($cart->items[$product->uuid]);
+        }
+
+        if ($cart->totalQty <= 0) {
+            Session::forget('cart');
+        } else {
+            Session::put('cart', $cart);
+        }
+
+        return $this->minicart();
+    }
+
+
     public function minicart()
     {
         try {

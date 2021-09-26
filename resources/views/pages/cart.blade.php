@@ -15,6 +15,7 @@
                 <div class="type-page hentry">
                     <div class="entry-content">
                         <div class="woocommerce">
+                            {{-- <cart-component></cart-component> --}}
                             @if (Session::has('cart'))
                                 <div class="cart-wrapper">
                                     <form method="post" action="{{ route('cart.update') }}" class="woocommerce-cart-form">

@@ -1,5 +1,5 @@
 <template>
-  <div class="cart-wrapper">
+  <div class="cart-wrapper" v-if="getCartItems.Products">
     <form method="post" action="#" class="woocommerce-cart-form">
       <table class="shop_table shop_table_responsive cart">
         <thead>
@@ -68,6 +68,10 @@
                       qty
                       rounded-0
                     "
+                    min="1"
+                    minlength="1"
+                    max="5"
+                    maxlength="5"
                     :value="item.Quantity"
                     readonly
                     @input="updateMyProp(index)"
@@ -134,6 +138,16 @@
     <!-- .cart-collaterals -->
   </div>
   <!-- .cart-wrapper -->
+  <div v-else>
+    <h3 class="text-center py-3">Your cart is empty!</h3>
+    <div class="d-flex justify-content-center">
+      <img
+        src="../../../../public/assets/empty.png"
+        alt=""
+        style="width: 500px"
+      />
+    </div>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -183,16 +197,11 @@ export default {
           console.error(error.res);
         });
     },
-    removeFromCart(product) {
+    removeFromCart(slug) {
       axios
-        .delete(`${product}/remove-from-cart`)
+        .delete(`remove/${slug}`)
         .then((res) => {
-          if (res.data.cart == false) {
-            this.message = "Your haven't shop yet!";
-            window.location.reload();
-          } else {
-            this.$store.dispatch("cartItems", res.data.data);
-          }
+          this.$store.dispatch("loadCartItems");
         })
         .catch((error) => {
           console.error(error);
