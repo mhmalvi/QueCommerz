@@ -167,6 +167,7 @@
                                         </p>
                                     @endif
                                     <!-- .single-product-header -->
+                                    {{-- <single-product :slug="{{$product}}"></single-product> --}}
                                     <form enctype="multipart/form-data" method="post" class="cart"
                                         action="{{ route('cart.store', $product->slug) }}">
                                         @csrf
@@ -178,7 +179,6 @@
                                         <!-- .quantity -->
                                         <button class="single_add_to_cart_button button alt" type="submit">
                                             Add to cart
-                                            {{-- <i class="fa fa-spinner fa-spin"></i> --}}
                                         </button>
                                     </form>
                                     <!-- .cart -->

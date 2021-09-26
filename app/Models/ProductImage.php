@@ -12,7 +12,7 @@ class ProductImage extends Model
 
     protected $guarded = [];
 
-    protected $hidden = ["id"];
+    protected $hidden = ["id", "product_id"];
 
     public function getImageAttribute($value)
     {
