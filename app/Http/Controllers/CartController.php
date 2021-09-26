@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     use TCart;
+
     /**
      * View shopping Cart
      */
@@ -72,23 +73,27 @@ class CartController extends Controller
      */
     public function updateCartItem(Request $request)
     {
-        $cart = Session::has('cart') ? Session::get('cart') : null;
+        try {
+            $cart = Session::has('cart') ? Session::get('cart') : null;
 
-        if (array_key_exists($request->sku, $cart->items)) {
-            if ($request->action == "plus") {
-                $cart->items[$request->sku]["qty"] += $request->qty;
-                $cart->items[$request->sku]["price"] += $request->qty * $cart->items[$request->sku]["reqular_price"];
-                $cart->totalPrice += $request->qty * $cart->items[$request->sku]["reqular_price"];
-            } else if ($request->action == "minus") {
-                $cart->items[$request->sku]["qty"] -= $request->qty;
-                $cart->items[$request->sku]["price"] -= $request->qty * $cart->items[$request->sku]["reqular_price"];
-                $cart->totalPrice -= $request->qty * $cart->items[$request->sku]["reqular_price"];
+            if (array_key_exists($request->sku, $cart->items)) {
+                if ($request->action == "plus") {
+                    $cart->items[$request->sku]["qty"] += $request->qty;
+                    $cart->items[$request->sku]["price"] += $request->qty * $cart->items[$request->sku]["reqular_price"];
+                    $cart->totalPrice += $request->qty * $cart->items[$request->sku]["reqular_price"];
+                } else if ($request->action == "minus") {
+                    $cart->items[$request->sku]["qty"] -= $request->qty;
+                    $cart->items[$request->sku]["price"] -= $request->qty * $cart->items[$request->sku]["reqular_price"];
+                    $cart->totalPrice -= $request->qty * $cart->items[$request->sku]["reqular_price"];
+                }
             }
+
+            Session::put('cart', $cart);
+
+            return response()->json(["status" => 'success'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(["status" => $th->getMessage()], 503);
         }
-
-        Session::put('cart', $cart);
-
-        return $this->minicart();
     }
 
 
