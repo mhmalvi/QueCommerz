@@ -26,6 +26,7 @@ class Cart implements ICart
     {
         $storedItem = [
             'qty' => 0,
+            'reqular_price' => $item->discounted(),
             'price' => $item->discounted(),
             'item' => $item
         ];
@@ -70,6 +71,18 @@ class Cart implements ICart
 
         $this->totalQty += 1;
         $this->totalPrice += $updatedItem['price'];
+    }
+
+    /**
+     * 
+     */
+    public function UpdateCartItem(string $id, int $quantity)
+    {
+        if ($this->items) {
+            if (array_key_exists($id, $this->items)) {
+                $updatedItem = $this->items[$id];
+            }
+        }
     }
 
     /**

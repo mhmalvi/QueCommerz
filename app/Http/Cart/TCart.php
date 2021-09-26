@@ -24,7 +24,7 @@ trait TCart
         }
 
         return $cart = [
-            'SubTotal' => $cart->totalPrice,
+            'SubTotal' => number_format($cart->totalPrice, 2, '.', ','),
             'TotalItems' => $cart->totalQty,
             'Products' => $items
         ];

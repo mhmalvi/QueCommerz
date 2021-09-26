@@ -54,6 +54,7 @@
                     <button
                       class="btn btn-sm btn-outline-secondary"
                       type="button"
+                      @click="decrease(item.Id)"
                     >
                       -
                     </button>
@@ -67,6 +68,7 @@
                       qty
                       rounded-0
                     "
+                    :value="item.Quantity"
                     readonly
                     @input="updateMyProp(index)"
                   />
@@ -74,6 +76,7 @@
                     <button
                       class="btn btn-sm btn-outline-secondary"
                       type="button"
+                      @click="increase(item.Id)"
                     >
                       +
                     </button>
@@ -138,11 +141,47 @@ import CartTotals from "./CartTotals.vue";
 export default {
   components: {
     CartTotals,
+    btnIncrease: true,
+    btnDecrease: true,
   },
   methods: {
-    updateMyProp($event, index) {
-      // your update logic here
-      // you can use 'this.items', Object.assign, Vue.set, etc... to update your value
+    increase(id) {
+      let product = this.getCartItems.Products.find(
+        (product) => product.Id == id
+      );
+      product.Quantity++;
+
+      axios
+        .put("update-cart-item", {
+          sku: id,
+          qty: 1,
+          action: "plus",
+        })
+        .then((res) => {
+          this.$store.dispatch("loadCartItems");
+        })
+        .catch((error) => {
+          console.error(error.res);
+        });
+    },
+    decrease(id) {
+      let product = this.getCartItems.Products.find(
+        (product) => product.Id == id
+      );
+      product.Quantity--;
+
+      axios
+        .put("update-cart-item", {
+          sku: id,
+          qty: 1,
+          action: "minus",
+        })
+        .then((res) => {
+          this.$store.dispatch("loadCartItems");
+        })
+        .catch((error) => {
+          console.error(error.res);
+        });
     },
     removeFromCart(product) {
       axios

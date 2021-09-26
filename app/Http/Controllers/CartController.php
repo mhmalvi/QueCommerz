@@ -67,6 +67,30 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Update Cart Item
+     */
+    public function updateCartItem(Request $request)
+    {
+        $cart = Session::has('cart') ? Session::get('cart') : null;
+
+        if (array_key_exists($request->sku, $cart->items)) {
+            if ($request->action == "plus") {
+                $cart->items[$request->sku]["qty"] += $request->qty;
+                $cart->items[$request->sku]["price"] += $request->qty * $cart->items[$request->sku]["reqular_price"];
+                $cart->totalPrice += $request->qty * $cart->items[$request->sku]["reqular_price"];
+            } else if ($request->action == "minus") {
+                $cart->items[$request->sku]["qty"] -= $request->qty;
+                $cart->items[$request->sku]["price"] -= $request->qty * $cart->items[$request->sku]["reqular_price"];
+                $cart->totalPrice -= $request->qty * $cart->items[$request->sku]["reqular_price"];
+            }
+        }
+
+        Session::put('cart', $cart);
+
+        return $this->minicart();
+    }
+
 
     /**
      * Remove single item from cart
