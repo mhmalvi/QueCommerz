@@ -29,6 +29,7 @@ class CheckoutController extends Controller
      */
     public function checkout(Request $request)
     {
+        // dd($request->all());
         if ($request->payment_method) {
             return redirect()->route("paypal");
         }

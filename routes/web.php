@@ -17,18 +17,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::get('/view/{product}', 'ProductController@view')->name('item');
 
+/**
+ * Cart
+ */
 Route::get('cart', 'CartController@index')->name('cart');
 Route::get('mini-cart', 'CartController@minicart');
 Route::name("cart.")->group(function () {
     Route::post('{product}/add-to-cart', 'CartController@store')->name("store");
     Route::put('update-cart', 'CartController@update')->name('update');
+    Route::put('update-cart-item', 'CartController@updateCartItem');
+    Route::delete("remove/{product}", "CartController@removeCartItem");
     Route::get('{product}/remove-from-cart', 'CartController@remove')->name('remove');
 });
 
+/**
+ * Checkout
+ */
 Route::get("checkout", "CheckoutController@index")->name("checkout");
 Route::post("checkout", "CheckoutController@checkout");
+
+/**
+ * Order
+ */
 Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
 
+/**
+ * Payment Gateway
+ */
 Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
 
 Route::view('/shop', 'pages.shop')->name('shop');
@@ -41,5 +56,7 @@ Route::view('product', 'pages.item')->name('product');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::view("test", "test");
 
 require __DIR__ . '/auth.php';

@@ -14,7 +14,9 @@ export default createStore({
             axios
                 .get("mini-cart")
                 .then((res) => {
-                    if (res.data.data) {
+                    if (res.data.cart == 0) {
+                        commit("SAVE_CART", []);
+                    } else {
                         commit("SAVE_CART", res.data.data);
                     }
                 })

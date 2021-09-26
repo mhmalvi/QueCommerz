@@ -176,9 +176,9 @@
                                                 name="quantity" id="quantity-input" min="1" max="5">
                                         </div>
                                         <!-- .quantity -->
-                                        <button class="single_add_to_cart_button button alt" type="submit" disabled>
+                                        <button class="single_add_to_cart_button button alt" type="submit">
                                             Add to cart
-                                            <i class="fa fa-spinner fa-spin"></i>
+                                            {{-- <i class="fa fa-spinner fa-spin"></i> --}}
                                         </button>
                                     </form>
                                     <!-- .cart -->
