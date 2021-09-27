@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container py-5">
-        <div class="d-flex justify-content-center">
+        {{-- <div class="d-flex justify-content-center">
             <div class="card px-3 py-5" style="width: 30rem;">
                 <div class="card-body text-center">
                     <h5 class="card-title">Thanks for shopping with us!</h5>
@@ -36,6 +36,6 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
