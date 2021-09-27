@@ -21413,6 +21413,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    toCheckOut: function toCheckOut() {
+      location.href = "/checkout";
+    }
+  },
   computed: {
     getCartItems: function getCartItems() {
       return this.$store.state.cart;
@@ -21857,9 +21862,11 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = {
   "class": "wc-proceed-to-checkout"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
   "class": "woocommerce-shipping-calculator",
   method: "post",
   action: "#"
@@ -22011,13 +22018,14 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   value: "1",
   name: "calc_shipping",
   type: "submit"
-}, " Update totals ")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .wc-proceed-to-checkout "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "checkout-button button alt wc-forward",
-  href: ""
-}, "Proceed to checkout"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+}, " Update totals ")])])])], -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "back-to-shopping",
   href: ""
-}, "Back to Shopping")], -1
+}, "Back to Shopping", -1
 /* HOISTED */
 );
 
@@ -22026,7 +22034,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])])]), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getCartItems.SubTotal), 1
   /* TEXT */
-  )])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .shop_table shop_table_responsive "), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .wc-proceed-to-checkout ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .cart_totals ")]);
+  )])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .shop_table shop_table_responsive "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .wc-proceed-to-checkout "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "checkout-button button alt wc-forward",
+    href: "javascript:void(0)",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toCheckOut && $options.toCheckOut.apply($options, arguments);
+    })
+  }, "Proceed to checkout"), _hoisted_18]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .wc-proceed-to-checkout ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" .cart_totals ")]);
 }
 
 /***/ }),

@@ -147,7 +147,10 @@
           </div>
         </form>
         <!-- .wc-proceed-to-checkout -->
-        <a class="checkout-button button alt wc-forward" href=""
+        <a
+          class="checkout-button button alt wc-forward"
+          href="javascript:void(0)"
+          @click="toCheckOut"
           >Proceed to checkout</a
         >
         <a class="back-to-shopping" href="">Back to Shopping</a>
@@ -159,6 +162,11 @@
 </template>
 <script>
 export default {
+  methods: {
+    toCheckOut() {
+      location.href = "/checkout";
+    },
+  },
   computed: {
     getCartItems() {
       return this.$store.state.cart;
