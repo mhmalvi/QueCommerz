@@ -29,10 +29,26 @@ class CheckoutController extends Controller
      */
     public function checkout(Request $request)
     {
-        // dd($request->all());
-        if ($request->payment_method) {
+        $data = [
+            'firstname' => $request->billing_first_name,
+            'lastname' => $request->billing_last_name,
+            'country' => $request->billing_country,
+            'state' => $request->billing_state,
+            'city' => $request->billing_city,
+            'address' => $request->billing_address_1 . $request->billing_address_2,
+            'post_code' => $request->billing_postcode,
+            'phone' => $request->billing_phone,
+            'email' => $request->email,
+            'shipping_address_alt' => $request->shipping_address_alt,
+            'order_notes' => $request->order_comments,
+            'payment_method' => $request->payment_method,
+        ];
+
+        if ($request->payment_method == 'paypal') {
             return redirect()->route("paypal");
         }
+
+        return redirect()->route('confirm');
     }
 
     /**
