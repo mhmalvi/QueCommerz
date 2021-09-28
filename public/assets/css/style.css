@@ -14161,7 +14161,7 @@ article .wl-create-new.more-link:before {
     li
     > a {
     font-size: 14px !important;
-    line-height: 1.6em;
+    line-height: 1em;
     display: block;
 }
 .departments-menu
@@ -15342,12 +15342,15 @@ article .wl-create-new.more-link:before {
 .yamm h3,
 .yamm h4,
 .yamm h5,
-.yamm h6,
-.yamm .nav-title {
+.yamm h6 {
     font-weight: 500;
     font-size: 1em;
     padding: 0.571em 0;
     min-height: 2.667em;
+}
+
+.yamm .nav-title {
+    min-height: 2em;
 }
 
 .yamm .nav-divider {
@@ -15521,7 +15524,7 @@ article .wl-create-new.more-link:before {
     font-weight: 500;
     font-size: 1em;
     padding: 0.571em 0;
-    min-height: 2.667em;
+    min-height: 2em;
     margin-bottom: 0;
 }
 

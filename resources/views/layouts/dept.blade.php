@@ -10,7 +10,7 @@
                     {{$item->category}}
                     <span class="caret"></span>
                 </a>
-                <ul role="menu" class=" dropdown-menu">
+                <ul role="menu" class="dropdown-menu ml-2">
                     <li class="menu-item menu-item-object-static_block animate-dropdown">
                         <div class="yamm-content">
                             <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
@@ -24,34 +24,54 @@
                             </div>
                             <!-- .bg-yamm-content -->
                             <div class="row yamm-content-row">
-                                @foreach ($item->children as $item)
-                                    <div class="col-md-4 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    @if ($item->children->count() > 0)
-                                                        <li class="nav-title">
-                                                            <a href="">{{$item->category}}</a>
-                                                        </li>
-                                                        @foreach ($item->children as $value)
-                                                            <li class="py-0">
-                                                                <a href="">-- {{$value->category}}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    @else
-                                                        <li class="py-0">
-                                                            <a href="">{{$item->category}}</a>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="kc-col-container">
+                                        <div class="kc_text_block">
+                                            <ul>
+                                                @foreach ($item->children as $value)
+                                                    @if ($value->children->count() == 0)
+                                                        <li>
+                                                            <a href="">{{$value->category}}</a>
                                                         </li>
                                                     @endif
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                        <!-- .kc-col-container -->
+                                        <!-- .kc_text_block -->
                                     </div>
-                                    <!-- .kc_column -->
-                                @endforeach
+                                    <!-- .kc-col-container -->
+                                </div>
+                                <!-- .kc_column -->
                             </div>
+                            <div class="nav-divider"></div>
+                            <div class="row yamm-content-row">
+                                @foreach ($item->children as $subcategory)
+                                    @if ($subcategory->children->count() > 0)
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="kc-col-container">
+                                                <div class="kc_text_block">
+                                                    <ul>
+                                                        <li class="nav-title">
+                                                            <a href="">
+                                                                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                                {{$subcategory->category}}
+                                                            </a>
+                                                        </li>
+                                                        @foreach ($subcategory->children as $subsubcategory)
+                                                            <li>
+                                                                <a href="">-- {{$subsubcategory->category}}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <!-- .kc_text_block -->
+                                            </div>
+                                            <!-- .kc-col-container -->
+                                        </div>
+                                        <!-- .kc_column -->
+                                    @endif
+                                @endforeach
+                            </div> 
                             <!-- .kc_row -->
                         </div>
                         <!-- .yamm-content -->
