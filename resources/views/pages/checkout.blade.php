@@ -29,12 +29,18 @@
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
+                                                        @error('billing_first_name')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_last_name_field" class="form-row form-row-last validate-required">
                                                         <label class="" for="billing_last_name">Last Name
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="" id="billing_last_name" name="billing_last_name" class="input-text ">
+                                                        @error('billing_last_name')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <div class="clear"></div>
                                                     <p id="billing_country_field" class="form-row form-row-wide validate-required validate-email">
@@ -47,6 +53,9 @@
                                                                 <option value="{{$item->code}}">{{$item->name}}</option>
                                                             @endforeach
                                                         </select>
+                                                        @error('billing_country')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <div class="clear"></div>
                                                     <p id="billing_state_field" class="form-row form-row-wide validate-required validate-email">
@@ -54,18 +63,27 @@
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="" id="billing_state" name="billing_state" class="input-text ">
+                                                        @error('billing_last_name')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row form-row-wide address-field validate-required">
                                                         <label class="" for="billing_city">Town / City
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="" id="billing_city" name="billing_city" class="input-text ">
+                                                        @error('billing_city')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
                                                         <label class="" for="billing_address_1">Street address
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="Street address" id="billing_address_1" name="billing_address_1" class="input-text ">
+                                                        @error('billing_address_1')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_address_2_field" class="form-row form-row-wide address-field">
                                                         <input type="text" value="" placeholder="Apartment, suite, unit etc. (optional)" id="billing_address_2" name="billing_address_2" class="input-text ">
@@ -75,18 +93,27 @@
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="text" value="" placeholder="" id="billing_postcode" name="billing_postcode" class="input-text ">
+                                                        @error('billing_postcode')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone">
                                                         <label class="" for="billing_phone">Phone
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="tel" value="" placeholder="" id="billing_phone" name="billing_phone" class="input-text ">
+                                                        @error('billing_phone')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                     <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
                                                         <label class="" for="billing_email">Email Address
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
                                                         <input type="email" value="" placeholder="" id="billing_email" name="email" class="input-text ">
+                                                        @error('email')
+                                                            <small class="text-danger">{{$message}}</small>
+                                                        @enderror
                                                     </p>
                                                 </div>
                                             </div>

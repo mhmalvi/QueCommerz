@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Cart\TCart;
+use App\Http\Requests\CheckoutRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
     use TCart;
+
+    function __construct()
+    {
+        if (!Session::has('cart')) {
+            return redirect()->route('quecommerz');
+        }
+    }
 
     /**
      * View checkout page
@@ -27,7 +35,7 @@ class CheckoutController extends Controller
     /**
      * Post Checkout
      */
-    public function checkout(Request $request)
+    public function checkout(CheckoutRequest $request)
     {
         $data = [
             'firstname' => $request->billing_first_name,
@@ -44,11 +52,10 @@ class CheckoutController extends Controller
             'payment_method' => $request->payment_method,
         ];
 
-        if ($request->payment_method == 'paypal') {
-            return redirect()->route("paypal");
-        }
+        //billing & shipping info
+        Session::put('bsInfo', $data);
 
-        return redirect()->route('confirm');
+        return redirect()->route('payment');
     }
 
     /**

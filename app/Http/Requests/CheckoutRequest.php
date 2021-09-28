@@ -32,7 +32,7 @@ class CheckoutRequest extends FormRequest
             "billing_state" => "required",
             "billing_postcode" => "required",
             "billing_phone" => "required",
-            "billing_email" => "required|max:100"
+            "email" => "required|max:100"
         ];
     }
 
@@ -47,7 +47,7 @@ class CheckoutRequest extends FormRequest
             "billing_state.required" => "Please enter your state name",
             "billing_postcode.required" => "Please enter you postal code",
             "billing_phone.required" => "Please enter your phone number",
-            "email.required" => "Please give us you email address"
+            "email.required" => "Please enter your email address"
         ];
     }
 
