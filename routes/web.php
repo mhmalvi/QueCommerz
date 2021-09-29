@@ -51,7 +51,6 @@ Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('/track-my-order', 'pages.track')->name('track');
 Route::view('wishlist', 'pages.wishlist')->name('wishlist');
-Route::view('recently-viwed-by-you', 'pages.recent-views')->name('recent');
 Route::view('product', 'pages.item')->name('product');
 
 Route::get('/dashboard', function () {

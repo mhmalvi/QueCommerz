@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function view(Product $product)
     {
-        $recent = Session::has('recent_view') ? Session::get('recent_view') : null;
+        $recent = Session::has('recent_view') ? Session::get('recent_view') : [];
 
         $rv = new RecentlyViewed($recent);
 

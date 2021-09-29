@@ -12,11 +12,32 @@
                 <!-- ============================================================= End Header Logo ============================================================= -->
                 <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
                     <ul id="menu-primary-menu" class="nav yamm">
-                        <li class="menu-item animate-dropdown">
-                            <a title="Recently Viewed" href="{{route('recent')}}">
-                                <i class="fa fa-history" aria-hidden="true"></i>&nbsp;
-                                Recently Viewed
+                        <li class="menu-item menu-item-has-children animate-dropdown dropdown show">
+                            <i class="fa fa-history" aria-hidden="true"></i>&nbsp;
+                            <a title="Recently Viewed" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#" aria-expanded="true">
+                                Recently Viewed <span class="caret"></span>
                             </a>
+                            <ul role="menu" class="dropdown-menu py-2" x-placement="bottom-start" 
+                            style="position: absolute; transform: translate3d(24px, 23px, 0px); top: 0px; left: 0px; will-change: transform; min-width: 20rem;">
+                                @if (Session::has('recent_view'))
+                                    @foreach (Session::get('recent_view')->items as $item)
+                                        <li class="menu-item animate-dropdown">
+                                            <a title="Wishlist p-0 clearfix" href="{{route('item', $item["slug"])}}">
+                                                <img class="d-inline float-left mr-4" src="{{$item["thumbnail"]}}" alt="" width="50">
+                                                <div class="px-3">
+                                                    <span>{{$item["title"]}}</span>
+                                                    <span class="d-block">${{$item["price"]}}</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <li class="menu-item animate-dropdown text-center">
+                                        No product viewed yet!
+                                    </li> 
+                                @endif
+                            </ul>
+                            <!-- .dropdown-menu -->
                         </li>
                         <li class="menu-item animate-dropdown">
                             <a title="New Arrivals" href="">

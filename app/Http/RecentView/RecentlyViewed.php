@@ -4,7 +4,7 @@ namespace App\Http\RecentView;
 
 class RecentlyViewed
 {
-    public $items = null;
+    public $items = [];
 
     public function __construct($oldData)
     {
@@ -17,7 +17,7 @@ class RecentlyViewed
     {
         $product = [
             'title' => $product->product,
-            'sku' => $product->sku,
+            'slug' => $product->slug,
             'price' => $product->discounted(),
             'thumbnail' => $product->thumbnail
         ];
