@@ -56,9 +56,9 @@
                                 Edit cart
                             </a>
 
-                            <button type="button" class="button wc-forward text-center w-100 mt-4">
+                            <a href="{{route('confirm')}}" class="button wc-forward text-center w-100 mt-4">
                                 Confirm order
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

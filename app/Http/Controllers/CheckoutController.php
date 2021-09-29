@@ -63,6 +63,7 @@ class CheckoutController extends Controller
      */
     public function confirm()
     {
+        Session::forget('cart');
         return view('pages.order-confirm');
     }
 }

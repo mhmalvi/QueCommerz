@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
-Route::get('/view/{product}', 'ProductController@view')->name('item');
+
+/**
+ * Shop
+ */
 Route::get('shop', 'ProductController@shop')->name('shop');
+
+/**
+ * Product
+ */
+Route::get('/view/{product}', 'ProductController@view')->name('item');
 
 /**
  * Cart
