@@ -53,7 +53,7 @@ class CheckoutController extends Controller
         ];
 
         //billing & shipping info
-        Session::put('bsInfo', $data);
+        // Session::put('bsInfo', $data);
 
         return redirect()->route('payment');
     }

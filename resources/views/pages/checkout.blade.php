@@ -28,7 +28,7 @@
                                                         <label class="" for="billing_first_name">First Name
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
+                                                        <input type="text" value="{{old('billing_first_name')}}" placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
                                                         @error('billing_first_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -37,7 +37,7 @@
                                                         <label class="" for="billing_last_name">Last Name
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="" id="billing_last_name" name="billing_last_name" class="input-text ">
+                                                        <input type="text" value="{{old('billing_first_name')}}" placeholder="" id="billing_last_name" name="billing_last_name" class="input-text ">
                                                         @error('billing_last_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -62,7 +62,7 @@
                                                         <label class="" for="billing_state">State
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="" id="billing_state" name="billing_state" class="input-text ">
+                                                        <input type="text" value="{{old('billing_last_name')}}" placeholder="" id="billing_state" name="billing_state" class="input-text ">
                                                         @error('billing_last_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -71,7 +71,7 @@
                                                         <label class="" for="billing_city">Town / City
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="" id="billing_city" name="billing_city" class="input-text ">
+                                                        <input type="text" value="{{old('billing_city')}}" placeholder="" id="billing_city" name="billing_city" class="input-text ">
                                                         @error('billing_city')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -80,19 +80,19 @@
                                                         <label class="" for="billing_address_1">Street address
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="Street address" id="billing_address_1" name="billing_address_1" class="input-text ">
+                                                        <input type="text" value="{{old('billing_address_1')}}" placeholder="Street address" id="billing_address_1" name="billing_address_1" class="input-text ">
                                                         @error('billing_address_1')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
                                                     </p>
                                                     <p id="billing_address_2_field" class="form-row form-row-wide address-field">
-                                                        <input type="text" value="" placeholder="Apartment, suite, unit etc. (optional)" id="billing_address_2" name="billing_address_2" class="input-text ">
+                                                        <input type="text" value="{{old('billing_address_2')}}" placeholder="Apartment, suite, unit etc. (optional)" id="billing_address_2" name="billing_address_2" class="input-text ">
                                                     </p>
                                                     <p id="billing_postcode_field" class="form-row form-row-wide address-field validate-postcode validate-required" data-o_class="form-row form-row form-row-last address-field validate-required validate-postcode">
                                                         <label class="" for="billing_postcode">Postcode / ZIP
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="" placeholder="" id="billing_postcode" name="billing_postcode" class="input-text ">
+                                                        <input type="text" value="{{old('billing_postcode')}}" placeholder="" id="billing_postcode" name="billing_postcode" class="input-text ">
                                                         @error('billing_postcode')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -101,7 +101,7 @@
                                                         <label class="" for="billing_phone">Phone
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="tel" value="" placeholder="" id="billing_phone" name="billing_phone" class="input-text ">
+                                                        <input type="tel" value="{{old('billing_phone')}}" placeholder="" id="billing_phone" name="billing_phone" class="input-text ">
                                                         @error('billing_phone')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -110,7 +110,7 @@
                                                         <label class="" for="billing_email">Email Address
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="email" value="" placeholder="" id="billing_email" name="email" class="input-text ">
+                                                        <input type="email" value="{{old('email')}}" placeholder="" id="billing_email" name="email" class="input-text ">
                                                         @error('email')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -204,16 +204,6 @@
                                         </table>
                                         <!-- /.woocommerce-checkout-review-order-table -->
                                         <div class="woocommerce-checkout-payment" id="payment">
-                                            <ul class="wc_payment_methods payment_methods methods">
-                                                <li class="wc_payment_method payment_method_bacs">
-                                                    <input type="radio" data-order_button_text="" value="paypal" name="payment_method" class="input-radio" id="payment_method_paypal">
-                                                    <label for="payment_method_paypal">Pay with paypal</label>
-                                                </li>
-                                                <li class="wc_payment_method payment_method_cod">
-                                                    <input type="radio" data-order_button_text="" value="cod" name="payment_method" class="input-radio" id="payment_method_cod" checked="checked">
-                                                    <label for="payment_method_cod">Cash on delivery </label>
-                                                </li>
-                                            </ul>
                                             <div class="form-row place-order">
                                                 <p class="form-row terms wc-terms-and-conditions woocommerce-validated">
                                                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
@@ -221,9 +211,12 @@
                                                         <span>I’ve read and accept the <a class="woocommerce-terms-and-conditions-link" href="terms-and-conditions.html">terms &amp; conditions</a></span>
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="hidden" value="1" name="terms-field">
+                                                    <input type="hidden" name="terms-field" value="true">
+                                                    @error('terms-field')
+                                                        <small class="text-danger">{{$message}}</small>
+                                                    @enderror
                                                 </p>
-                                                <button type="submit" class="button wc-forward text-center">Place order</button>
+                                                <button type="submit" class="btn btn-outline-primary w-100">Place order</button>
                                             </div>
                                         </div>
                                         <!-- /.woocommerce-checkout-payment -->

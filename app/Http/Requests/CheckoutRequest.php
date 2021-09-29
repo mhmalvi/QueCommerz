@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CheckTermsConditions;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CheckoutRequest extends FormRequest
@@ -32,7 +33,8 @@ class CheckoutRequest extends FormRequest
             "billing_state" => "required",
             "billing_postcode" => "required",
             "billing_phone" => "required",
-            "email" => "required|max:100"
+            "email" => "required|max:100",
+            "terms-field" => new CheckTermsConditions
         ];
     }
 
@@ -47,7 +49,7 @@ class CheckoutRequest extends FormRequest
             "billing_state.required" => "Please enter your state name",
             "billing_postcode.required" => "Please enter you postal code",
             "billing_phone.required" => "Please enter your phone number",
-            "email.required" => "Please enter your email address"
+            "email.required" => "Please enter your email address",
         ];
     }
 
