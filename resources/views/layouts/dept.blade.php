@@ -3,7 +3,7 @@
     <span>All Departments</span>
 </button>
 <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
-    @forelse (\App\Models\Category::with('children.children')->where('parent_id', null)->get() as $item)
+    @forelse (\App\Models\Category::with('children.children')->where('parent_id', null)->limit(11)->get() as $item)
         @if ($item->children->count())
             <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
                 <a title="Computers &amp; Laptops" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
