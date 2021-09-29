@@ -4,13 +4,17 @@
     <div class="container py-5">
         <form action="" method="post" onsubmit="false">
             <div class="row">
-                {{-- <div class="col-md-7">
-                    <div class="card mb-3">
+                <div class="col-md-7">
+                    <div class="card mb-3 p-4">
                         <div class="card-body">
                             <h6 class="card-title text-center text-muted">Select Your Payment Option</h6>
+
+                            <div class="py-3"></div>
+                            <!-- Set up a container element for the button -->
+                            <div id="paypal-button-container"></div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
                 <div class="col-md-5 mx-auto">
                     <div class="card bg-light mb-3">
@@ -66,3 +70,50 @@
         </form>
     </div>
 @endsection
+
+@push('js')
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+              style: {
+                height: 40,
+                layout:  'vertical',
+                color:   'blue',
+                shape:   'rect',
+                label:   'paypal'
+            },
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '88.44'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                    // Replace the above to show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3 class="text-center">Thank you for your payment!</h3>';
+                    // url: actions.redirect('/order-confirm');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+@endpush
