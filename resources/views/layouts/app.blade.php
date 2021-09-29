@@ -23,6 +23,9 @@
             case 'shop':
                 $class = 'woocommerce-active left-sidebar';
                 break;
+            case 'newarrivals':
+                $class = 'woocommerce-active left-sidebar';
+                break;
             case 'shop_by_category':
                 $class = 'woocommerce-active left-sidebar';
                 break;

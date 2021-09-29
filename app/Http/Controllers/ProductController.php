@@ -24,6 +24,17 @@ class ProductController extends Controller
 
 
     /**
+     * New Arrivals page
+     */
+    public function recentArrivals()
+    {
+        $products = Product::latest()->get();
+
+        return view('pages.shop', compact('products'));
+    }
+
+
+    /**
      * View Specific product
      */
     public function view(Product $product)

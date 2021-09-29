@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::get('/view/{product}', 'ProductController@view')->name('item');
+Route::get('products/new-arrival', 'ProductController@recentArrivals')->name('newarrivals');
 
 /**
  * Cart
