@@ -53,7 +53,7 @@ Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
 /**
  * Payment Gateway
  */
-Route::get('choose-payment-method', 'PaymentController@index')->name('payment');
+Route::get('choose-payment-method', 'PaymentController@index')->middleware(['cart'])->name('payment');
 Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
 
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
