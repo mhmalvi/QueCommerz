@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::get('/view/{product}', 'ProductController@view')->name('item');
-Route::get('products/new-arrival', 'ProductController@recentArrivals')->name('newarrivals');
+Route::get('shop', 'ProductController@shop')->name('shop');
 
 /**
  * Cart
@@ -48,7 +48,6 @@ Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
 Route::get('choose-payment-method', 'PaymentController@index')->name('payment');
 Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
 
-Route::view('/shop', 'pages.shop')->name('shop');
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('/track-my-order', 'pages.track')->name('track');
 Route::view('wishlist', 'pages.wishlist')->name('wishlist');

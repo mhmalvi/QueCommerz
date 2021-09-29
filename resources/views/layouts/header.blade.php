@@ -40,7 +40,7 @@
                             <!-- .dropdown-menu -->
                         </li>
                         <li class="menu-item animate-dropdown">
-                            <a title="New Arrivals" href="{{route('newarrivals')}}">
+                            <a title="New Arrivals" href="{{route('shop')}}">
                                 <i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;
                                 New Arrivals
                             </a>

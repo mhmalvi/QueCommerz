@@ -26,7 +26,7 @@ class ProductController extends Controller
     /**
      * New Arrivals page
      */
-    public function recentArrivals()
+    public function shop()
     {
         $products = Product::latest()->get();
 
