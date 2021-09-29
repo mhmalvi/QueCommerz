@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\RecentView\RecentlyViewed;
 use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -26,6 +28,14 @@ class ProductController extends Controller
      */
     public function view(Product $product)
     {
+        $recent = Session::has('recent_view') ? Session::get('recent_view') : null;
+
+        $rv = new RecentlyViewed($recent);
+
+        $rv->AddProduct($product->uuid, $product);
+
+        Session::put('recent_view', $rv);
+
         return view('pages.item', compact('product'));
     }
 }
