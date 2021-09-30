@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\RecentView\RecentlyViewed;
 use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -28,7 +29,29 @@ class ProductController extends Controller
      */
     public function shop()
     {
-        $products = Product::latest()->get();
+        $found_no_products = false;
+        $products = Product::latest();
+        if(request()->filled('category'))
+        {
+            $category_slug = request('category');
+            $category = Category::where('slug', $category_slug)->first();
+            if($category)
+            {
+                $products->where('category_id', $category->id);
+            }
+            else
+            {
+                $found_no_products = true;
+            }
+        }
+        if($found_no_products)
+        {
+            $products = [];
+        }
+        else
+        {
+            $products = $products->get();
+        }
 
         return view('pages.shop', compact('products'));
     }

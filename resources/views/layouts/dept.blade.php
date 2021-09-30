@@ -31,7 +31,7 @@
                                                 @foreach ($item->children as $value)
                                                     @if ($value->children->count() == 0)
                                                         <li>
-                                                            <a href="">{{$value->category}}</a>
+                                                            <a href="/shop?category={{ $value->slug }}">{{$value->category}}</a>
                                                         </li>
                                                     @endif
                                                 @endforeach
@@ -52,14 +52,14 @@
                                                 <div class="kc_text_block">
                                                     <ul>
                                                         <li class="nav-title">
-                                                            <a href="">
+                                                            <a href="/shop?category={{ $subcategory->slug }}">
                                                                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
                                                                 {{$subcategory->category}}
                                                             </a>
                                                         </li>
                                                         @foreach ($subcategory->children as $subsubcategory)
                                                             <li>
-                                                                <a href="">-- {{$subsubcategory->category}}</a>
+                                                                <a href="/shop?category={{ $subsubcategory->slug }}">-- {{$subsubcategory->category}}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -80,7 +80,7 @@
             </li>
         @else
             <li class="menu-item menu-item-type-custom animate-dropdown">
-                <a title="Gadgets" href="">{{$item->category}}</a>
+                <a title="Gadgets" href="/shop?category={{ $item->slug }}">{{$item->category}}</a>
             </li>
         @endif
     @empty
