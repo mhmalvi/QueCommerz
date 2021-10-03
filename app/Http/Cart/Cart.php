@@ -90,7 +90,7 @@ class Cart implements ICart
     public function RemoveFromCart(string $id)
     {
         if (array_key_exists($id, $this->items)) {
-            $this->totalQty -= $this->items[$id]->qty;
+            $this->totalQty -= 1;
             $this->totalPrice -= $this->items[$id]->price;
 
             unset($this->items[$id]);

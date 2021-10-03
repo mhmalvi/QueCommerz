@@ -22,6 +22,7 @@ class PaymentController extends Controller
         $cart = $this->shoppingCart();
         $info = Session::get('bsInfo');
 
+
         return view('pages.payment', compact('cart', 'info'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Order;
 use App\Rules\CheckTermsConditions;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -51,10 +52,5 @@ class CheckoutRequest extends FormRequest
             "billing_phone.required" => "Please enter your phone number",
             "email.required" => "Please enter your email address",
         ];
-    }
-
-    public function save()
-    {
-        return;
     }
 }
