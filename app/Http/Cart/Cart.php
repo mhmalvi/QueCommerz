@@ -6,7 +6,7 @@ use App\Http\Cart\ICart;
 
 class Cart implements ICart
 {
-    public $items = null;
+    public $items = [];
     public $totalQty;
     public $totalPrice;
 
@@ -24,28 +24,27 @@ class Cart implements ICart
      */
     public function AddToCart(string $id, $item, int $qty): void
     {
-        $storedItem = [
-            'qty' => 0,
-            'reqular_price' => $item->discounted(),
-            'price' => $item->discounted(),
-            'item' => $item
-        ];
+        $storedItem = new Item();
+
+        $storedItem->qty = 0;
+        $storedItem->regular_price = $item->discounted();
+        $storedItem->product = $item;
 
         /**
          * if item already exist in cart
          */
         if ($this->items && array_key_exists($id, $this->items)) {
             $storedItem = $this->items[$id];
-            $storedItem['qty'] += $qty;
-            $storedItem['price'] = $item->discounted() * $storedItem['qty'];
+            $storedItem->qty += $qty;
+            $storedItem->price = $item->discounted() * $storedItem->qty;
         } else {
-            $storedItem['qty'] += $qty;
-            $storedItem['price'] = $item->discounted() * $storedItem['qty'];
+            $storedItem->qty += $qty;
+            $storedItem->price = $item->discounted() * $storedItem->qty;
             $this->totalQty += 1;
         }
 
         $this->items[$id] = $storedItem;
-        $this->totalPrice += $item->discounted() * $qty;
+        $this->totalPrice += $storedItem->price;
     }
 
     /**
@@ -53,11 +52,11 @@ class Cart implements ICart
      */
     public function UpdateCart(string $id, object $item, int $quantity)
     {
-        $updatedItem = [
-            'qty' => $quantity,
-            'price' => $item->discounted(),
-            'item' => $item
-        ];
+        $updatedItem = new Item();
+
+        $updatedItem->qty = $quantity;
+        $updatedItem->regular_price = $item->discounted();
+        $updatedItem->product = $item;
 
         if ($this->items) {
             if (array_key_exists($id, $this->items)) {
@@ -65,12 +64,12 @@ class Cart implements ICart
             }
         }
 
-        $updatedItem['price'] = $updatedItem["price"] * $updatedItem['qty'];
+        $updatedItem->price = $updatedItem->regular_price * $updatedItem->qty;
 
         $this->items[$id] = $updatedItem;
 
         $this->totalQty += 1;
-        $this->totalPrice += $updatedItem['price'];
+        $this->totalPrice += $updatedItem->price;
     }
 
     /**
@@ -91,8 +90,8 @@ class Cart implements ICart
     public function RemoveFromCart(string $id)
     {
         if (array_key_exists($id, $this->items)) {
-            $this->totalQty -= $this->items[$id]['qty'];
-            $this->totalPrice -= $this->items[$id]['price'];
+            $this->totalQty -= $this->items[$id]->qty;
+            $this->totalPrice -= $this->items[$id]->price;
 
             unset($this->items[$id]);
         }

@@ -12,15 +12,15 @@ trait TCart
             $cart = Session::get('cart');
             $items = [];
 
-            foreach ($cart->items as $key => $value) {
+            foreach ($cart->items as $key => $item) {
                 array_push($items, [
                     'Id' => $key,
-                    'Title' => $value["item"]["product"],
-                    'Slug' => $value["item"]["slug"],
-                    'Price' => $value["item"]->discounted(),
-                    'Quantity' => $value["qty"],
-                    'TotalPrice' => $value["price"],
-                    'thumbnail' => $value["item"]["thumbnail"]
+                    'Title' => $item->product->product,
+                    'Slug' => $item->product->slug,
+                    'Price' => $item->product->discounted(),
+                    'Quantity' => $item->qty,
+                    'TotalPrice' => $item->price,
+                    'thumbnail' => $item->product->thumbnail,
                 ]);
             }
 
