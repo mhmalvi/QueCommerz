@@ -11,8 +11,19 @@
                 <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="No additional fees" href="contact-v2.html">No additional fees</a>
+                @if(auth()->user())
+                    <a title="Your Profile" href="{{ route('dashboard') }}">
+                        <u>{{ auth()->user()->name }}</u>
+                    </a>
+                @else
+                    <a title="Login / Register" href="{{ route('login') }}">Login / Register</a>
+                @endif
             </li>
+            @if(auth()->user())
+            <li class="menu-item animate-dropdown">
+                <a href="/logout" title="Logout">Logout</a>
+            </li>
+            @endif
         </ul>
         <!-- .nav -->
     </div>

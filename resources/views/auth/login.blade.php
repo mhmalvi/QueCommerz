@@ -21,7 +21,7 @@
                                 <div id="customer_login" class="u-columns col2-set">
                                     <div class="u-column1 col-1">
                                         <h2>Login</h2>
-                                        <form method="post" class="woocomerce-form woocommerce-form-login login" action="{{ route('login') }}">
+                                        <form method="post" class="woocomerce-form woocommerce-form-login login" action="{{ route('login.store') }}">
                                             @csrf
                                             <p class="before-login-text">
                                                 Vestibulum lacus magna, faucibus vitae dui eget, aliquam fringilla. In et commodo elit. Class aptent taciti sociosqu ad litora.
@@ -31,12 +31,18 @@
                                                     <span class="required">*</span>
                                                 </label>
                                                 <input type="text" class="input-text" name="email" id="email" value="" required autofocus/>
+                                                @if($errors->has('email'))
+                                                    <p class="text-danger">{{ $errors->first('email') }}</p>
+                                                @endif
                                             </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="password">Password
                                                     <span class="required">*</span>
                                                 </label>
                                                 <input class="input-text" type="password" name="password" id="password" required autocomplete="current-password"/>
+                                                @if($errors->has('password'))
+                                                    <p class="text-danger">{{ $errors->first('password') }}</p>
+                                                @endif
                                             </p>
                                             <p class="form-row">
                                                 <input class="woocommerce-Button button" type="submit" value="Login" name="login">
@@ -53,21 +59,46 @@
                                     <!-- .col-1 -->
                                     <div class="u-column2 col-2">
                                         <h2>Register</h2>
-                                        <form class="register" method="post">
+                                        <form class="register" method="post" action="{{ route('register.store') }}">
+                                            @csrf
                                             <p class="before-register-text">
                                                 Create new account today to reap the benefits of a personalized shopping experience. Praesent placerat, est sed aliquet finibus.
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="reg_name">
+                                                    Name<span class="required">*</span>
+                                                </label>
+                                                <input type="text" name="name" class="woocommerce-Input woocommerce-Input--text input-text" value="{{ old('name') }}">
+                                                @if($errors->has('name'))
+                                                    <p class="text-danger">{{ $errors->first('name') }}</p>
+                                                @endif
                                             </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="reg_email">Email address
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input type="email" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                <input type="email" value="{{ old('email') }}" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                @if($errors->has('email'))
+                                                    <p class="text-danger">{{ $errors->first('email') }}</p>
+                                                @endif
                                             </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="reg_password">Password
                                                     <span class="required">*</span>
                                                 </label>
                                                 <input type="password" id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                @if($errors->has('password'))
+                                                    <p class="text-danger">{{ $errors->first('password') }}</p>
+                                                @endif
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="reg_password_confirmation">Password Confirmation
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input type="password" id="reg_password_confirmation" name="password_confirmation" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                @if($errors->has('password_confirmation'))
+                                                    <p class="text-danger">{{ $errors->first('password_confirmation') }}</p>
+                                                @endif
                                             </p>
                                             <p class="form-row">
                                                 <input type="submit" class="woocommerce-Button button" name="register" value="Register" />

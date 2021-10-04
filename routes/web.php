@@ -39,26 +39,31 @@ Route::name("cart.")->group(function () {
     Route::get('{product}/remove-from-cart', 'CartController@remove')->name('remove');
 });
 
-/**
- * Checkout
- */
-Route::get("checkout", "CheckoutController@index")->name("checkout");
-Route::post("checkout", "CheckoutController@checkout");
 
-/**
- * Order
- */
-Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
+Route::middleware(['auth'])->group(function()
+{
+    /**
+     * Checkout
+     */
+    Route::get("checkout", "CheckoutController@index")->name("checkout");
+    Route::post("checkout", "CheckoutController@checkout");
 
-/**
- * Payment Gateway
- */
-Route::get('choose-payment-method', 'PaymentController@index')->middleware(['cart'])->name('payment');
-Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
+    /**
+     * Order
+     */
+    Route::get("order-confirm", "CheckoutController@confirm")->name("confirm");
+
+    /**
+     * Payment Gateway
+     */
+    Route::get('choose-payment-method', 'PaymentController@index')->middleware(['cart'])->name('payment');
+    Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
+    
+    Route::view('/track-my-order', 'pages.track')->name('track');
+    Route::view('wishlist', 'pages.wishlist')->name('wishlist');
+});
 
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
-Route::view('/track-my-order', 'pages.track')->name('track');
-Route::view('wishlist', 'pages.wishlist')->name('wishlist');
 Route::view('product', 'pages.item')->name('product');
 
 Route::get('/dashboard', function () {
