@@ -5,6 +5,11 @@ import NewArrivals from "./components/NewArrivals.vue";
 import MiniCart from "./components/cart/MiniCart.vue";
 import CartComponent from "./components/cart/CartComponent.vue";
 import SingleProduct from "./components/product/SingleProduct.vue";
+import UserSidebar from './components/user/Sidebar.vue';
+import Dashboard from './components/user/Dashboard.vue';
+import Profile from './components/user/Profile.vue';
+import TrackOrders from './components/user/TrackOrders.vue';
+import ViewInvoice from './components/user/ViewInvoice.vue';
 
 const app = createApp({});
 
@@ -16,6 +21,11 @@ app.component("new-arrivals", NewArrivals);
 app.component("mini-cart", MiniCart);
 app.component("cart-component", CartComponent);
 app.component("single-product", SingleProduct);
+app.component("user-sidebar", UserSidebar);
+app.component("dashboard", Dashboard);
+app.component("user-profile", Profile);
+app.component("track-orders", TrackOrders);
+app.component("view-invoice", ViewInvoice);
 
 app.use(store).mount("#page");
 

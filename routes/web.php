@@ -66,7 +66,18 @@ Route::middleware(['auth'])->group(function()
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('product', 'pages.item')->name('product');
 
-Route::get('/dashboard', 'DashboardController@index')->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function()
+{
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+
+    Route::get('/track-orders', 'TrackOrderController@index')->name('track-orders');
+
+    Route::get('/track-orders/list', 'TrackOrderController@list')->name('track-orders.list');
+
+    Route::get('/track-orders/view/{order:order_no}', 'TrackOrderController@viewInvoice')->name('track-orders.view_invoice');
+});
 
 Route::get("test", "HomeController@test");
 

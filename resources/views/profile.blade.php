@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="col-md-9">
-                        <dashboard></dashboard>
+                        <user-profile user_info="{{ auth()->user() }}"/>
                     </div>
                 </div>
             </main>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Track Orders')
 
 @section('content')
     <div class="row">
@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="col-md-9">
-                        <dashboard></dashboard>
+                        <track-orders />
                     </div>
                 </div>
             </main>
