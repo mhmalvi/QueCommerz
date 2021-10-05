@@ -41,4 +41,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getFirstNameAttribute()
+    {
+        $items = explode(' ', $this->name);
+        if(count($items) > 1) array_pop($items);
+
+        return implode(' ', $items);
+    }
+
+    public function getLastNameAttribute()
+    {
+        $items = explode(' ', $this->name);
+        if(count($items) < 2) return '';
+
+        return $items[count($items) - 1];
+    }
 }

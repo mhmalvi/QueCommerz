@@ -66,9 +66,7 @@ Route::middleware(['auth'])->group(function()
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('product', 'pages.item')->name('product');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->middleware(['auth'])->name('dashboard');
 
 Route::get("test", "HomeController@test");
 

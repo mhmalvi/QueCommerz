@@ -16,7 +16,7 @@
                     <div class="entry-content">
                         <div class="woocommerce">
                             <!-- .collapse -->
-                            <form action="{{route("checkout")}}" class="checkout woocommerce-checkout" method="post" name="checkout">
+                            <form action="{{route('checkout')}}" class="checkout woocommerce-checkout" method="post" name="checkout">
                                 @csrf
                                 <div id="customer_details" class="col2-set">
                                     <div class="col-1">
@@ -28,7 +28,9 @@
                                                         <label class="" for="billing_first_name">First Name
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="{{old('billing_first_name')}}" placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
+                                                        <input type="text"
+                                                            value="{{ old('billing_first_name') ? old('billing_first_name') : $user->first_name }}"
+                                                            placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
                                                         @error('billing_first_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -37,7 +39,9 @@
                                                         <label class="" for="billing_last_name">Last Name
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="{{old('billing_first_name')}}" placeholder="" id="billing_last_name" name="billing_last_name" class="input-text ">
+                                                        <input type="text"
+                                                        value="{{ old('billing_last_name')? old('billing_last_name') : $user->last_name }}"
+                                                        placeholder="" id="billing_last_name" name="billing_last_name" class="input-text ">
                                                         @error('billing_last_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -62,7 +66,7 @@
                                                         <label class="" for="billing_state">State
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="text" value="{{old('billing_last_name')}}" placeholder="" id="billing_state" name="billing_state" class="input-text ">
+                                                        <input type="text" value="{{old('billing_state')}}" placeholder="" id="billing_state" name="billing_state" class="input-text ">
                                                         @error('billing_last_name')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror
@@ -110,7 +114,9 @@
                                                         <label class="" for="billing_email">Email Address
                                                             <abbr title="required" class="required">*</abbr>
                                                         </label>
-                                                        <input type="email" value="{{old('email')}}" placeholder="" id="billing_email" name="email" class="input-text ">
+                                                        <input type="email"
+                                                        value="{{ old('email') ? old('email') : $user->email }}"
+                                                        placeholder="" id="billing_email" name="email" class="input-text ">
                                                         @error('email')
                                                             <small class="text-danger">{{$message}}</small>
                                                         @enderror

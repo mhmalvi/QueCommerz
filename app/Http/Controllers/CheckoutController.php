@@ -30,7 +30,9 @@ class CheckoutController extends Controller
         if (Session::has('cart')) {
             $cart = $this->shoppingCart();
 
-            return view('pages.checkout', compact('cart'));
+            $user = auth()->user();
+
+            return view('pages.checkout', compact('cart', 'user'));
         } else {
             return redirect()->route('quecommerz');
         }
@@ -64,7 +66,7 @@ class CheckoutController extends Controller
         ];
 
         //billing & shipping info
-        Session::put('bsInfox', $data);
+        Session::put('bsInfo', $data);
 
         return redirect()->route('payment');
     }
@@ -80,7 +82,7 @@ class CheckoutController extends Controller
         $cart_json = json_encode($cart);
 
         $shipment = Shipment::create([
-            'user_id' => 0, // place auth user id here
+            'user_id' => auth()->user()->id, // place auth user id here
             'shipping_address' => $address,
             'shipping_method' => 'transportation',
             'shipping_rate' => 0,
@@ -88,14 +90,14 @@ class CheckoutController extends Controller
             'shipping_tax' => 0,
         ]);
 
-        $order_no = date('Y-m-d', time()) . '-' . random_int(100000, 999999); // date-{8 digits number}
+        $order_no = date('Ymd', time()) . '-' . random_int(100000, 999999); // date-{8 digits number}
 
         $payment_type = "paypal"; // just for testing
         $payment_id = 0;
         $payer_id = 0;
 
         $order = Order::create([
-            'user_id' => 0,
+            'user_id' => auth()->user()->id,
             'order_no' => $order_no,
             'payment_type' => $payment_type,
             'payment_id' => $payment_id,
