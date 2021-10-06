@@ -77,6 +77,8 @@ Route::middleware(['auth'])->group(function()
     Route::get('/track-orders/list', 'TrackOrderController@list')->name('track-orders.list');
 
     Route::get('/track-orders/view/{order:order_no}', 'TrackOrderController@viewInvoice')->name('track-orders.view_invoice');
+
+    Route::get('/change-password', 'ProfileController@changePasswordIndex');
 });
 
 Route::get("test", "HomeController@test");

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Track Orders')
+@section('title', 'Change password')
 
 @section('content')
     <div class="container-fluid">
@@ -10,9 +10,8 @@
             </div>
 
             <div class="col-md-9">
-                <track-orders />
+                <change-password user_info="{{ auth()->user() }}"/>
             </div>
         </div>
     </div>
-
 @endsection

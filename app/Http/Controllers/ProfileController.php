@@ -10,4 +10,9 @@ class ProfileController extends Controller
     {
         return view('profile');
     }
+
+    public function changePasswordIndex()
+    {
+        return view('change_password');
+    }
 }

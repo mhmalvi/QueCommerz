@@ -3,20 +3,15 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="row">
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main">
-                <div class="row">
-                    <div class="col-md-3">
-                        <user-sidebar />
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <user-sidebar />
+            </div>
 
-                    <div class="col-md-9">
-                        <dashboard></dashboard>
-                    </div>
-                </div>
-            </main>
+            <div class="col-md-9">
+                <dashboard></dashboard>
+            </div>
         </div>
     </div>
-
 @endsection

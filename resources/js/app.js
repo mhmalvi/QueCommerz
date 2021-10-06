@@ -10,6 +10,7 @@ import Dashboard from './components/user/Dashboard.vue';
 import Profile from './components/user/Profile.vue';
 import TrackOrders from './components/user/TrackOrders.vue';
 import ViewInvoice from './components/user/ViewInvoice.vue';
+import ChangePassword from './components/user/ChangePassword.vue';
 
 const app = createApp({});
 
@@ -26,6 +27,7 @@ app.component("dashboard", Dashboard);
 app.component("user-profile", Profile);
 app.component("track-orders", TrackOrders);
 app.component("view-invoice", ViewInvoice);
+app.component('change-password', ChangePassword);
 
 app.use(store).mount("#page");
 

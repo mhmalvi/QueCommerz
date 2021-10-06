@@ -22,6 +22,7 @@ class TrackOrderController extends Controller
 
     public function viewInvoice(Order $order)
     {
+        if($order->order_status != 'approved') return redirect()->back();
         return view('track_orders.view_invoice', compact('order'));
     }
 }
