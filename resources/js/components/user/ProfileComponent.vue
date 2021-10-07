@@ -5,7 +5,7 @@
 
     <p>You can update your profile information here.</p>
 
-    <form class="col-md-8" @submit.prevent="onUpdate">
+    <form @submit.prevent="onUpdate">
       <div class="d-flex  justify-content-end">
         <button class="btn btn-primary" :disabled="isUpdating">
           {{ isUpdating ? "Saving" : "Save" }}
