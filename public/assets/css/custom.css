@@ -84,7 +84,7 @@ input[type="range"]:focus::-moz-slider-runnable-track {
 .loader:before,
 .loader:after {
     content: "";
-    border: 1em solid #7037ff;
+    border: 1em solid #c1272d;
     border-radius: 50%;
     width: inherit;
     height: inherit;

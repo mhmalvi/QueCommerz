@@ -4,14 +4,14 @@
             <div class="row">
                 <div class="site-branding">
                     <a href="{{route('quecommerz')}}" class="custom-logo-link" rel="home">
-                        <img src="{{asset('assets/images/logo.png')}}" alt="" srcset="">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="" srcset="" style="max-width: 250px;">
                     </a>
                     <!-- /.custom-logo-link -->
                 </div>
                 <!-- /.site-branding -->
                 <!-- ============================================================= End Header Logo ============================================================= -->
                 <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
-                    <ul id="menu-primary-menu" class="nav yamm">
+                    <ul id="menu-primary-menu" class="nav yamm mt-3">
                         <li class="menu-item menu-item-has-children animate-dropdown dropdown show">
                             <i class="fa fa-history" aria-hidden="true"></i>&nbsp;
                             <a title="Recently Viewed" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#" aria-expanded="true">
@@ -55,24 +55,6 @@
                     <!-- .nav -->
                 </nav>
                 <!-- .primary-navigation -->
-                <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation" data-nav="flex-menu">
-                    <ul id="menu-secondary-menu" class="nav">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2802 animate-dropdown">
-                            <a title="Track Your Order" href="{{route('track')}}">
-                                <i class="tm tm-order-tracking"></i>Track Your Order</a>
-                        </li>
-                        <li class="menu-item">
-                            <a title="My Account" href="">
-                                <i class="tm tm-login-register"></i>Register or Sign in</a>
-                        </li>
-                        <li class="techmarket-flex-more-menu-item dropdown">
-                            <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>
-                            <ul class="overflow-items dropdown-menu"></ul>
-                        </li>
-                    </ul>
-                    <!-- .nav -->
-                </nav>
-                <!-- .secondary-navigation -->
             </div>
             <!-- /.row -->
         </div>
@@ -92,28 +74,7 @@
                     <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="s" placeholder="Search for products" />
                     <div class="input-group-addon search-categories popover-header">
                         <select name='product_cat' id='product_cat' class='postform resizeselect'>
-                            <option value='0' selected='selected'>All Categories</option>
-                            <option class="level-0" value="television">Televisions</option>
-                            <option class="level-0" value="home-theater-audio">Home Theater &amp; Audio</option>
-                            <option class="level-0" value="headphones">Headphones</option>
-                            <option class="level-0" value="digital-cameras">Digital Cameras</option>
-                            <option class="level-0" value="cells-tablets">Cells &amp; Tablets</option>
-                            <option class="level-0" value="smartwatches">Smartwatches</option>
-                            <option class="level-0" value="games-consoles">Games &amp; Consoles</option>
-                            <option class="level-0" value="printer">Printer</option>
-                            <option class="level-0" value="tv-video">TV &amp; Video</option>
-                            <option class="level-0" value="home-entertainment">Home Entertainment</option>
-                            <option class="level-0" value="tvs">TVs</option>
-                            <option class="level-0" value="speakers">Speakers</option>
-                            <option class="level-0" value="computers-laptops">Computers &amp; Laptops</option>
-                            <option class="level-0" value="laptops">Laptops</option>
-                            <option class="level-0" value="ultrabooks">Ultrabooks</option>
-                            <option class="level-0" value="notebooks">Notebooks</option>
-                            <option class="level-0" value="desktop-pcs">Desktop PCs</option>
-                            <option class="level-0" value="mac-computers">Mac Computers</option>
-                            <option class="level-0" value="all-in-one-pc">All in One PC</option>
-                            <option class="level-0" value="audio-music">Audio &amp; Music</option>
-                            <option class="level-0" value="pc-components">PC Components</option>
+                            <option value selected='selected'>All Categories</option>
                         </select>
                     </div>
                     <!-- .input-group-addon -->
@@ -133,7 +94,7 @@
                 <li class="nav-item">
                     <a href="compare.html" class="nav-link">
                         <i class="tm tm-compare"></i>
-                        <span id="top-cart-compare-count" class="value">3</span>
+                        <span id="top-cart-compare-count" class="value">0</span>
                     </a>
                 </li>
             </ul>
@@ -142,7 +103,7 @@
                 <li class="nav-item">
                     <a href="{{route('wishlist')}}" class="nav-link">
                         <i class="tm tm-favorites"></i>
-                        <span id="top-cart-wishlist-count" class="value">3</span>
+                        <span id="top-cart-wishlist-count" class="value">0</span>
                     </a>
                 </li>
             </ul>

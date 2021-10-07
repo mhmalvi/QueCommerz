@@ -2,13 +2,13 @@
     <div class="col-full">
         <ul id="menu-top-bar-left" class="nav justify-content-center">
             <li class="menu-item animate-dropdown">
-                <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
+                <a title="TechMarket eCommerce - Always free delivery" href="{{route('track')}}">Track Your Order</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
+                <a title="Quality Guarantee of products" href="">Quality Guarantee of products</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
+                <a title="Fast returnings program" href="">Fast returnings program</a>
             </li>
             <li class="menu-item animate-dropdown">
                 @if(auth()->user())
