@@ -11,6 +11,7 @@ import ProfileComponent from "./components/user/ProfileComponent.vue";
 import TrackOrders from "./components/user/TrackOrders.vue";
 import ViewInvoice from "./components/user/ViewInvoice.vue";
 import ChangePassword from "./components/user/ChangePassword.vue";
+import WishListComponent from "./components/user/WishListComponent.vue";
 
 const app = createApp({});
 
@@ -28,6 +29,7 @@ app.component("user-profile", ProfileComponent);
 app.component("track-orders", TrackOrders);
 app.component("view-invoice", ViewInvoice);
 app.component("change-password", ChangePassword);
+app.component("wishlist-component", WishListComponent);
 
 app.use(store).mount("#page");
 

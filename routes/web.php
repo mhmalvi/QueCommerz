@@ -60,7 +60,8 @@ Route::middleware(['auth'])->group(function()
     Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
     
     Route::view('/track-my-order', 'pages.track')->name('track');
-    Route::view('wishlist', 'pages.wishlist')->name('wishlist');
+    Route::get('wishlist', 'WishlistController@index')->name('wishlist');
+    Route::get('wishlist/add/{product:slug}', 'WishlistController@add');
 });
 
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');

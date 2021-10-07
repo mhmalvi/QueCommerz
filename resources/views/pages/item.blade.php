@@ -88,7 +88,7 @@
                         <div class="summary entry-summary">
                             <div class="single-product-header">
                                 <h1 class="product_title entry-title">{{ $product->product }}</h1>
-                                {{-- <a class="add-to-wishlist" href="wishlist.html"> Add to Wishlist</a> --}}
+                                <a class="add-to-wishlist" href="/wishlist/add/{{ $product->slug }}"> Add to Wishlist</a>
                             </div>
                             <!-- .single-product-header -->
                             <div class="single-product-meta">
