@@ -9,4 +9,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.min.css')}}" media="all" />
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" media="all" />
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/custom.css')}}" media="all" />
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/blue.css')}}" media="all" />
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/red.css')}}" media="all" />

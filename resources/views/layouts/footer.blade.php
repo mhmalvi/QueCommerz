@@ -63,7 +63,7 @@
                 <div class="footer-contact">
                     <div class="footer-logo">
                         <a href="{{route('quecommerz')}}" class="custom-logo-link" rel="home">
-                            <img src="{{asset('assets/images/logo.png')}}" alt="">
+                            <img src="{{asset('assets/images/logo.png')}}" alt="" style="max-width: 300px;">
                         </a>
                     </div>
                     <!-- .footer-logo -->
@@ -242,7 +242,7 @@
         <!-- .footer-widgets-block -->
         <div class="site-info">
             <div class="col-full">
-                <div class="copyright">Copyright &copy; 2021 <a href="https://quadque.tech">Quadque Technologies ltd</a>. All rights reserved.</div>
+                <div class="copyright">Copyright &copy; 2021 <a href="https://quadque.tech">Tradetradeus</a>. All rights reserved.</div>
                 <!-- .copyright -->
                 <div class="credit">Made with
                     <i class="fa fa-heart"></i> by Quadque Technologies ltd</div>
