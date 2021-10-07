@@ -12,7 +12,7 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
-                        <user-profile user_info="{{ auth()->load('info') }}"/>
+                        <user-profile user_info="{{ auth()->user()->load('info') }}"/>
                     </div>
                 </div>
             </div>
