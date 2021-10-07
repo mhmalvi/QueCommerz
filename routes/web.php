@@ -72,6 +72,8 @@ Route::middleware(['auth'])->group(function()
 
     Route::get('/profile', 'ProfileController@index')->name('profile');
 
+    Route::patch('/profile', 'ProfileController@update');
+
     Route::get('/track-orders', 'TrackOrderController@index')->name('track-orders');
 
     Route::get('/track-orders/list', 'TrackOrderController@list')->name('track-orders.list');

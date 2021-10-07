@@ -13,7 +13,7 @@
             <li class="menu-item animate-dropdown">
                 @if(auth()->user())
                     <a title="Your Profile" href="{{ route('dashboard') }}">
-                        <u>{{ auth()->user()->name }}</u>
+                        <u>{{ auth()->user()->info->full_name }}</u>
                     </a>
                 @else
                     <a title="Login / Register" href="{{ route('login') }}">Login / Register</a>

@@ -10,7 +10,7 @@
             </div>
 
             <div class="col-md-9">
-                <user-profile user_info="{{ auth()->user() }}"/>
+                <user-profile user_info="{{ auth()->user()->load('info') }}"/>
             </div>
         </div>
     </div>

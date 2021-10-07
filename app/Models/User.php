@@ -57,4 +57,9 @@ class User extends Authenticatable
 
         return $items[count($items) - 1];
     }
+
+    public function info()
+    {
+        return $this->hasOne(UserInfo::class);
+    }
 }
