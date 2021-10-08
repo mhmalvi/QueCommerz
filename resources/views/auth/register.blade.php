@@ -1,59 +1,89 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('title', 'Sign up')
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@section('content')
+    <div class="row">
+        <nav class="woocommerce-breadcrumb">
+            <a href="">Home</a>
+            <span class="delimiter">
+                <i class="tm tm-breadcrumbs-arrow-right"></i>
+            </span>My Account
+        </nav>
+        <!-- .woocommerce-breadcrumb -->
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="row mx-2">
+                    <div class="col-md-4 mx-auto">
+                        <div class="card p-3">
+                            <div class="card-body">
+                                <h2>Register</h2>
+                                <form class="register" method="post" action="{{ route('register.store') }}">
+                                    @csrf
+                                    <p class="before-register-text">
+                                        Create new account today to reap the benefits of a personalized
+                                        shopping experience.
+                                    </p>
+                                    <p class="form-row form-row-wide">
+                                        <label for="reg_name">
+                                            Name<span class="required">*</span>
+                                        </label>
+                                        <input type="text" name="name"
+                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                            value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                                        @endif
+                                    </p>
+                                    <p class="form-row form-row-wide">
+                                        <label for="reg_email">Email address
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input type="email" value="{{ old('email') }}" id="reg_email" name="email"
+                                            class="woocommerce-Input woocommerce-Input--text input-text">
+                                        @if ($errors->has('email'))
+                                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                                        @endif
+                                    </p>
+                                    <p class="form-row form-row-wide">
+                                        <label for="reg_password">Password
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input type="password" id="reg_password" name="password"
+                                            class="woocommerce-Input woocommerce-Input--text input-text">
+                                        @if ($errors->has('password'))
+                                            <p class="text-danger">{{ $errors->first('password') }}</p>
+                                        @endif
+                                    </p>
+                                    <p class="form-row form-row-wide">
+                                        <label for="reg_password_confirmation">Password Confirmation
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input type="password" id="reg_password_confirmation" name="password_confirmation"
+                                            class="woocommerce-Input woocommerce-Input--text input-text">
+                                        @if ($errors->has('password_confirmation'))
+                                            <p class="text-danger">
+                                                {{ $errors->first('password_confirmation') }}</p>
+                                        @endif
+                                    </p>
+                                    <p class="form-row mt-4">
+                                        <button type="submit" class="btn btn-block btn-primary">Sign
+                                            up</button>
+                                    </p>
+                                </form>
+                                <!-- .register -->
+                                <p>
+                                    or <a class="text-danger" href="{{ route('login') }}">Sign
+                                        in</a> instead
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- #main -->
+        </div>
+        <!-- #primary -->
+    </div>
+    <!-- .row -->
+@endsection
