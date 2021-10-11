@@ -25,7 +25,7 @@
 					</thead>
 					<tbody>
 						<!-- wish product component -->
-						<wishlist-product-component v-for="(item, index) in wishlist" :key="index" :item="item"/>
+						<wishlist-product-component v-for="(item, index) in wishlist" :key="index" :item="item" @remove="onItemRemoved"/>
 					</tbody>
 					<tfoot>
 						<tr>
@@ -79,6 +79,15 @@
 		{
 			this.wishlist = JSON.parse(this.wishlist_data);
 			console.log(">>>", this.wishlist);
+		},
+		methods:
+		{
+			onItemRemoved(item)
+			{
+				let index = this.wishlist.indexOf(item)
+				console.log("removing", index, this.wishlist, item);
+				this.wishlist = this.wishlist.slice(index, 1);
+			}
 		}
 	};
 </script>

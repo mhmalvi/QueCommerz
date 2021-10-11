@@ -2,7 +2,7 @@
 	<tr>
 		<td class="product-remove">
 			<div>
-				<a title="Remove this product" class="remove remove_from_wishlist" href="#">×</a>
+				<a title="Remove this product" class="remove remove_from_wishlist" href="javascript:void(0)" @click="onRemove">×</a>
 			</div>
 		</td>
 		<td class="product-thumbnail">
@@ -59,6 +59,10 @@
 				}).finally(() => {
 					this.isAdding = false;
 				})
+			},
+			onRemove()
+			{
+				this.$emit('remove', this.item);
 			}
 		}
 	};
