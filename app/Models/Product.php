@@ -23,7 +23,7 @@ class Product extends Model
 
     public function getThumbnailAttribute($value)
     {
-        return Storage::disk('ftp')->url("thumbnails/{$value}");
+        return Storage::disk('ftp')->url("storage/products/{$value}");
     }
 
     public function discount()

@@ -16,7 +16,7 @@ class ProductImage extends Model
 
     public function getImageAttribute($value)
     {
-        return Storage::disk('ftp')->url("gallary/{$value}");
+        return Storage::disk('ftp')->url("storage/products/{$value}");
     }
 
     public function product()
