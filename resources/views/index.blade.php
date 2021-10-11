@@ -90,6 +90,80 @@
                     <!-- .products-carousel -->
                 </section>
 
+                {{-- Featured products --}}
+                <section class="section-products-carousel" id="featured_products">
+                    <header class="section-header">
+                        <h2 class="section-title">Featured Products</h2>
+                        <nav class="custom-slick-nav"></nav>
+                        <!-- .custom-slick-nav -->
+                    </header>
+                    <!-- .section-header -->
+                    <div class="products-carousel 6-column-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:true,&quot;slidesToShow&quot;:8,&quot;slidesToScroll&quot;:2,&quot;dots&quot;:true,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#featured_products .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:750,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1700,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
+                        <div class="container-fluid">
+                            <div class="woocommerce columns-6">
+                                <div class="products">
+                                    @forelse ($featured_products as $item)
+                                        <div class="product">
+                                            <a href="{{route('item', $item->product->slug)}}" class="woocommerce-LoopProduct-link">
+                                                @if ($item->product->discount)
+                                                    <span class="onsale">
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-currencySymbol">
+                                                                {{$item->product->discount()}}
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                @endif
+                                            <img
+                                                src="{{$item->product->thumbnail}}"
+                                                width="224"
+                                                height="197"
+                                                class="wp-post-image"
+                                                alt=""
+                                            />
+
+                                            @if ($item->product->discount > 0)
+                                                <span class="price">
+                                                    <ins>
+                                                        <span class="amount">${{$item->product->discounted()}}</span>
+                                                    </ins>
+                                                    <del>
+                                                        <span class="amount">${{$item->product->price}}</span>
+                                                    </del>
+                                                    <span class="amount"> </span>
+                                                </span>
+                                            @else
+                                                <span class="price">
+                                                    <ins>
+                                                        <span class="amount">${{$item->product->price}}</span>
+                                                    </ins>
+                                                    <span class="amount"></span>
+                                                </span>
+                                                <!-- /.price -->
+                                            @endif
+                                            <h2 class="woocommerce-loop-product__title">
+                                                {{$item->product->product}}
+                                            </h2>
+                                            </a>
+                                            <div class="hover-area">
+                                            <a class="button add_to_cart_button" href="{{route('item', $item->product->slug)}}" rel="nofollow"
+                                                >View Product</a
+                                            >
+                                            </div>
+                                        </div>
+                                        <!-- /.product-outer -->
+                                    @empty
+                                        
+                                    @endforelse
+                                </div>
+                            </div>
+                            <!-- .woocommerce-->
+                        </div>
+                        <!-- .container-fluid -->
+                    </div>
+                    <!-- .products-carousel -->
+                </section>
+
                 {{-- Recently Viewed --}}
                 @if (Session::has('recent_view'))
                     <section class="section-landscape-products-carousel recently-viewed" id="recently-viewed">
