@@ -86,7 +86,12 @@
                                         <!-- .hover-area -->
                                     </div>
                                 @empty
-                                    
+                                    <div class="text-center w-100 py-4">
+                                        <div class="d-flex justify-content-center">
+                                            <img class="w-50" src="{{asset('assets/shop_empty.png')}}" alt="">
+                                        </div>
+                                        <h3 class="pt-3">We couldn't found any product!</h3>
+                                    </div>
                                 @endforelse
                             </div>
                             <!-- .products -->
