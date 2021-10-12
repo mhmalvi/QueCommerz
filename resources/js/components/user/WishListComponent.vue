@@ -23,9 +23,16 @@
 							<th class="product-add-to-cart"></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody v-if="wishlist.length == 0">
+						<tr>
+							<td colspan="6">
+								<p class="text-center">No product in your wishlist!</p>
+							</td>
+						</tr>
+					</tbody>
+					<tbody v-for="(item, index) in wishlist" :key="index" v-else>
 						<!-- wish product component -->
-						<wishlist-product-component v-for="(item, index) in wishlist" :key="index" :item="item" @remove="onItemRemoved"/>
+						<wishlist-product-component @remove="onItemRemoved" :item="item" />
 					</tbody>
 					<tfoot>
 						<tr>
@@ -63,6 +70,7 @@
 
 <script>
 	import WishlistProductComponent from './WishlistProductComponent.vue';
+	import axios from 'axios';
 
 	export default
 	{
@@ -75,18 +83,24 @@
 				wishlist: []
 			}
 		},
-		created()
+		mounted()
 		{
 			this.wishlist = JSON.parse(this.wishlist_data);
-			console.log(">>>", this.wishlist);
 		},
 		methods:
 		{
 			onItemRemoved(item)
 			{
 				let index = this.wishlist.indexOf(item)
-				console.log("removing", index, this.wishlist, item);
-				this.wishlist = this.wishlist.slice(index, 1);
+				this.wishlist.splice(index, 1);
+
+				axios.post('wishlist/delete/' + item.id, {
+					_method: "DELETE"
+				}).then(res => {
+
+				}).catch(error => {
+					console.error(error.response.data);
+				})
 			}
 		}
 	};
