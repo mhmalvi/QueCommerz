@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function()
     Route::view('/track-my-order', 'pages.track')->name('track');
     Route::get('wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('wishlist/add/{product:slug}', 'WishlistController@add');
+
+    Route::delete('wishlist/delete/{wishlist}', 'WishlistController@destroy');
 });
 
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
