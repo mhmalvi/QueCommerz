@@ -74,8 +74,9 @@
                                     <i class="tm tm-call-us-footer"></i>
                                 </span>
                                 <div class="media-body">
-                                    <span class="call-us-title">Got Questions ? Call us 24/7!</span>
-                                    <span class="call-us-text">(800) 8001-8588, (0600) 874 548</span>
+                                    <span class="call-us-text">
+                                        <a href="tel:+61 468 400 636">+61 468 400 636</a>
+                                    </span>
                                     <address class="footer-contact-address">17 Princess Road, London, Greater London NW1 8JR, UK</address>
                                     <a href="#" class="footer-address-map-link">
                                         <i class="tm tm-map-marker"></i>Find us on map</a>
