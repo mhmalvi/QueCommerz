@@ -6,7 +6,7 @@
 
         <meta name="api-base-url" content="{{ URL::to('/')}}" />
 
-        <title>Quecommerz - @yield('title')</title>
+        <title>TradeTradeUs - @yield('title')</title>
 
         @include('layouts.styles')
         

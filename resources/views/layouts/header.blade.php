@@ -45,10 +45,15 @@
                                 New Arrivals
                             </a>
                         </li>
-                        <li class="sale-clr yamm-fw menu-item animate-dropdown">
+                        <li class="sale-clr yamm-fw menu-item">
                             <a title="Super deals" href="">
                                 <i class="fa fa-superpowers" aria-hidden="true"></i>&nbsp;
                                 Super deals
+                            </a>
+                        </li>
+                        <li class="yamm-fw menu-item">
+                            <a title="About" href="{{route('about-us')}}">
+                                About Tradetradeus
                             </a>
                         </li>
                     </ul>

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
+Route::view('about-us', 'pages.about')->name('about-us');
 
 /**
  * Shop
@@ -40,8 +41,7 @@ Route::name("cart.")->group(function () {
 });
 
 
-Route::middleware(['auth'])->group(function()
-{
+Route::middleware(['auth'])->group(function () {
     /**
      * Checkout
      */
@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function()
      */
     Route::get('choose-payment-method', 'PaymentController@index')->middleware(['cart'])->name('payment');
     Route::get("pay-via-paypal", "PaypalController@index")->name('paypal');
-    
+
     Route::view('/track-my-order', 'pages.track')->name('track');
     Route::get('wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('wishlist/add/{product:slug}', 'WishlistController@add');
@@ -69,8 +69,7 @@ Route::middleware(['auth'])->group(function()
 Route::view('/shop/{category}', 'pages.shop')->name('shop_by_category');
 Route::view('product', 'pages.item')->name('product');
 
-Route::middleware(['auth'])->group(function()
-{
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/profile', 'ProfileController@index')->name('profile');

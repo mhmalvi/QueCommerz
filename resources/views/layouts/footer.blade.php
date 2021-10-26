@@ -140,22 +140,22 @@
                                 <div class="menu-footer-menu-1-container">
                                     <ul id="menu-footer-menu-1" class="menu">
                                         <li class="menu-item">
-                                            <a href="shop.html">Computers &#038; Laptops</a>
+                                            <a href="">Computers &#038; Laptops</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Cameras &#038; Photography</a>
+                                            <a href="">Cameras &#038; Photography</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Smart Phones &#038; Tablets</a>
+                                            <a href="">Smart Phones &#038; Tablets</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Video Games &#038; Consoles</a>
+                                            <a href="">Video Games &#038; Consoles</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">TV</a>
+                                            <a href="">TV</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Car Electronic &#038; GPS</a>
+                                            <a href="">Car Electronic &#038; GPS</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -173,22 +173,22 @@
                                 <div class="menu-footer-menu-2-container">
                                     <ul id="menu-footer-menu-2" class="menu">
                                         <li class="menu-item">
-                                            <a href="shop.html">Printers &#038; Ink</a>
+                                            <a href="">Printers &#038; Ink</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Audio &amp; Music</a>
+                                            <a href="">Audio &amp; Music</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Home Theaters</a>
+                                            <a href="">Home Theaters</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">PC Components</a>
+                                            <a href="">PC Components</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Ultrabooks</a>
+                                            <a href="">Ultrabooks</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Smartwatches</a>
+                                            <a href="">Smartwatches</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -206,25 +206,25 @@
                                 <div class="menu-footer-menu-3-container">
                                     <ul id="menu-footer-menu-3" class="menu">
                                         <li class="menu-item">
-                                            <a href="login-and-register.html">My Account</a>
+                                            <a href="">My Account</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="track-your-order.html">Track Order</a>
+                                            <a href="">Track Order</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="shop.html">Shop</a>
+                                            <a href="">Shop</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="wishlist.html">Wishlist</a>
+                                            <a href="">Wishlist</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="about.html">About Us</a>
+                                            <a href="">About Us</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="terms-and-conditions.html">Returns/Exchange</a>
+                                            <a href="">Returns/Exchange</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="faq.html">FAQs</a>
+                                            <a href="">FAQs</a>
                                         </li>
                                     </ul>
                                 </div>
