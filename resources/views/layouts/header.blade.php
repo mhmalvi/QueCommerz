@@ -56,6 +56,11 @@
                                 About Tradetradeus
                             </a>
                         </li>
+                        <li class="yamm-fw menu-item">
+                            <a title="Contact" href="{{route('contact-us')}}">
+                                Contact
+                            </a>
+                        </li>
                     </ul>
                     <!-- .nav -->
                 </nav>

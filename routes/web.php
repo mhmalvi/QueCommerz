@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('quecommerz');
 Route::view('about-us', 'pages.about')->name('about-us');
+Route::view('contact-us', 'pages.contact')->name('contact-us');
 
 /**
  * Shop
