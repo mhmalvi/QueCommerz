@@ -60,181 +60,159 @@
         <!-- .before-footer-wrap -->
         <div class="footer-widgets-block">
             <div class="row">
-                <div class="footer-contact">
-                    <div class="footer-logo">
-                        <a href="{{route('quecommerz')}}" class="custom-logo-link" rel="home">
-                            <img src="{{asset('assets/images/logo.png')}}" alt="" style="max-width: 300px;">
-                        </a>
-                    </div>
-                    <!-- .footer-logo -->
-                    <div class="contact-payment-wrap">
-                        <div class="footer-contact-info">
-                            <div class="media">
-                                <span class="media-left icon media-middle">
-                                    <i class="tm tm-call-us-footer"></i>
-                                </span>
-                                <div class="media-body">
-                                    <span class="call-us-text">
-                                        <a href="tel:+61 468 400 636">+61 468 400 636</a>
-                                    </span>
-                                    <address class="footer-contact-address">17 Princess Road, London, Greater London NW1 8JR, UK</address>
-                                    <a href="#" class="footer-address-map-link">
-                                        <i class="tm tm-map-marker"></i>Find us on map</a>
-                                </div>
-                                <!-- .media-body -->
-                            </div>
-                            <!-- .media -->
+                <div class="col-lg-3 d-flex flex-column justify-content-center align-items-center">
+                    <div class="footer-contact">
+                        <div class="footer-logo mb-5">
+                            <a href="{{route('quecommerz')}}" class="custom-logo-link" rel="home">
+                                <img src="{{asset('assets/images/logo.png')}}" alt="" style="max-width: 300px;">
+                            </a>
                         </div>
-                        <!-- .footer-contact-info -->
-                        <div class="footer-payment-info">
-                            <div class="media">
-                                <span class="media-left icon media-middle">
-                                    <i class="tm tm-safe-payments"></i>
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="footer-payment-info-title">We are using safe payments</h5>
-                                    <div class="footer-payment-icons">
-                                        <ul class="list-payment-icons nav">
-                                            <li class="nav-item">
-                                                <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/mastercard.svg')}}" alt="mastercard" />
-                                            </li>
-                                            <li class="nav-item">
-                                                <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/visa.svg')}}" alt="visa" />
-                                            </li>
-                                            <li class="nav-item">
-                                                <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/paypal.svg')}}" alt="paypal" />
-                                            </li>
-                                            <li class="nav-item">
-                                                <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/maestro.svg')}}" alt="maestro" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- .footer-payment-icons -->
-                                    <div class="footer-secure-by-info">
-                                        <h6 class="footer-secured-by-title">Secured by:</h6>
-                                        <ul class="footer-secured-by-icons">
-                                            <li class="nav-item">
-                                                <img class="secure-icons-image" src="{{asset('assets/images/secured-by/norton.svg')}}" alt="norton" />
-                                            </li>
-                                            <li class="nav-item">
-                                                <img class="secure-icons-image" src="{{asset('assets/images/secured-by/mcafee.svg')}}" alt="mcafee" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- .footer-secure-by-info -->
-                                </div>
-                                <!-- .media-body -->
-                            </div>
-                            <!-- .media -->
-                        </div>
-                        <!-- .footer-payment-info -->
                     </div>
-                    <!-- .contact-payment-wrap -->
+
+                    <div class="mb-5">
+                        <span class="call-us-text">
+                            <h6 class="widget-title d-inline">Call us at:&nbsp;</h6><a href="tel:+61 468 400 636">+61 468 400 636</a>
+                        </span>
+                    </div>
+                    <!-- .media-body -->
+
+                    <!-- .footer-contact-info -->
+                    <div class="footer-payment-info">
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="footer-payment-icons">
+                                    <ul class="list-payment-icons nav">
+                                        <li class="nav-item">
+                                            <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/easypaisa.png')}}" alt="mastercard" />
+                                        </li>
+                                        <li class="nav-item">
+                                            <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/jazzcash.png')}}" alt="mastercard" />
+                                        </li>
+                                        <li class="nav-item">
+                                            <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/visa.svg')}}" alt="visa" />
+                                        </li>
+                                        <li class="nav-item">
+                                            <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/paypal.svg')}}" alt="paypal" />
+                                        </li>
+                                        <li class="nav-item">
+                                            <img class="payment-icon-image" src="{{asset('assets/images/credit-cards/maestro.svg')}}" alt="maestro" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- .footer-payment-icons -->
+                            </div>
+                            <!-- .media-body -->
+                        </div>
+                        <!-- .media -->
+                    </div>
+                    <!-- .footer-payment-info -->
                 </div>
-                <!-- .footer-contact -->
-                <div class="footer-widgets">
-                    <div class="columns">
-                        <aside class="widget clearfix">
-                            <div class="body">
-                                <h4 class="widget-title">Find it Fast</h4>
-                                <div class="menu-footer-menu-1-container">
-                                    <ul id="menu-footer-menu-1" class="menu">
-                                        <li class="menu-item">
-                                            <a href="">Computers &#038; Laptops</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Cameras &#038; Photography</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Smart Phones &#038; Tablets</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Video Games &#038; Consoles</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">TV</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Car Electronic &#038; GPS</a>
-                                        </li>
-                                    </ul>
+
+                <div class="col-md-9">
+                    <div class="footer-widgets">
+                        <div class="columns">
+                            <aside class="widget clearfix">
+                                <div class="body">
+                                    <h4 class="widget-title">Find it Fast</h4>
+                                    <div class="menu-footer-menu-1-container">
+                                        <ul id="menu-footer-menu-1" class="menu">
+                                            <li class="menu-item">
+                                                <a href="">Computers &#038; Laptops</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Cameras &#038; Photography</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Smart Phones &#038; Tablets</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Video Games &#038; Consoles</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">TV</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Car Electronic &#038; GPS</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- .menu-footer-menu-1-container -->
                                 </div>
-                                <!-- .menu-footer-menu-1-container -->
-                            </div>
-                            <!-- .body -->
-                        </aside>
-                        <!-- .widget -->
-                    </div>
-                    <!-- .columns -->
-                    <div class="columns">
-                        <aside class="widget clearfix">
-                            <div class="body">
-                                <h4 class="widget-title">&nbsp;</h4>
-                                <div class="menu-footer-menu-2-container">
-                                    <ul id="menu-footer-menu-2" class="menu">
-                                        <li class="menu-item">
-                                            <a href="">Printers &#038; Ink</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Audio &amp; Music</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Home Theaters</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">PC Components</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Ultrabooks</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Smartwatches</a>
-                                        </li>
-                                    </ul>
+                                <!-- .body -->
+                            </aside>
+                            <!-- .widget -->
+                        </div>
+                        <!-- .columns -->
+                        <div class="columns">
+                            <aside class="widget clearfix">
+                                <div class="body">
+                                    <h4 class="widget-title">&nbsp;</h4>
+                                    <div class="menu-footer-menu-2-container">
+                                        <ul id="menu-footer-menu-2" class="menu">
+                                            <li class="menu-item">
+                                                <a href="">Printers &#038; Ink</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Audio &amp; Music</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Home Theaters</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">PC Components</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Ultrabooks</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Smartwatches</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- .menu-footer-menu-2-container -->
                                 </div>
-                                <!-- .menu-footer-menu-2-container -->
-                            </div>
-                            <!-- .body -->
-                        </aside>
-                        <!-- .widget -->
-                    </div>
-                    <!-- .columns -->
-                    <div class="columns">
-                        <aside class="widget clearfix">
-                            <div class="body">
-                                <h4 class="widget-title">Customer Care</h4>
-                                <div class="menu-footer-menu-3-container">
-                                    <ul id="menu-footer-menu-3" class="menu">
-                                        <li class="menu-item">
-                                            <a href="">My Account</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Track Order</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Shop</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Wishlist</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">About Us</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">Returns/Exchange</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="">FAQs</a>
-                                        </li>
-                                    </ul>
+                                <!-- .body -->
+                            </aside>
+                            <!-- .widget -->
+                        </div>
+                        <!-- .columns -->
+                        <div class="columns">
+                            <aside class="widget clearfix">
+                                <div class="body">
+                                    <h4 class="widget-title">Customer Care</h4>
+                                    <div class="menu-footer-menu-3-container">
+                                        <ul id="menu-footer-menu-3" class="menu">
+                                            <li class="menu-item">
+                                                <a href="">My Account</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Track Order</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Shop</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Wishlist</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">About Us</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">Returns/Exchange</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="">FAQs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- .menu-footer-menu-3-container -->
                                 </div>
-                                <!-- .menu-footer-menu-3-container -->
-                            </div>
-                            <!-- .body -->
-                        </aside>
-                        <!-- .widget -->
+                                <!-- .body -->
+                            </aside>
+                            <!-- .widget -->
+                        </div>
+                        <!-- .columns -->
                     </div>
-                    <!-- .columns -->
                 </div>
                 <!-- .footer-widgets -->
             </div>
