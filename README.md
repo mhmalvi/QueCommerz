@@ -1,3 +1,6 @@
+<!-- repo-card -->
+![QueCommerz](docs/assets/social-card.png)
+
 # QueCommerz
 
 A modern e-commerce platform built with Laravel 8 featuring a clean storefront, shopping cart with session management, PayPal payment integration, wishlist functionality, and order tracking with invoice generation.
